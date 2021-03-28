@@ -1,0 +1,2 @@
+com/example/tagnfckotlin/BuildConfig.java
+ com.example.tagnfckotlin.BuildConfig
