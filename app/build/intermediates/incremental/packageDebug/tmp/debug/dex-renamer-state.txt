@@ -1,7 +1,7 @@
-#Sun Mar 28 13:14:20 CEST 2021
-base.0=C\:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+#Mon Mar 29 18:19:03 CEST 2021
+base.0=C\:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+base.1=C\:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex

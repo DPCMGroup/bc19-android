@@ -19,10 +19,17 @@ import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
 import kotlin.experimental.and
 
+import okhttp3.*
+import java.io.IOException
+
 class MainActivity : AppCompatActivity() {
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
+
+    private val client = OkHttpClient()
+    val url = "http://192.168.0.101:8000/workstation/"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         pendingIntent = PendingIntent.getActivity(this, 0,
                 Intent(this, this.javaClass)
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
+
+
     }
 
     override fun onResume() {
@@ -59,6 +68,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resolveIntent(intent: Intent) {
+
+        /*QUI CHIEDI A SERVER*/
+        getRequest()
+        /*QUI CHIEDI A SERVER*/
         val action = intent.action
         if (NfcAdapter.ACTION_TAG_DISCOVERED == action || NfcAdapter.ACTION_TECH_DISCOVERED == action || NfcAdapter.ACTION_NDEF_DISCOVERED == action) {
             val rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
@@ -201,5 +214,19 @@ class MainActivity : AppCompatActivity() {
             factor *= 256L
         }
         return result
+    }
+
+
+    private fun getRequest(){
+        val request = Request.Builder()
+            .url(url)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {println(e)}
+
+            override fun onResponse(call: Call, response: Response) = println(response.body()!!.string())
+        })
+        println("fine getRequest")
     }
 }
