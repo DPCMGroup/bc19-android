@@ -172,9 +172,9 @@ class MainActivity : AppCompatActivity() {
     private fun toHex(bytes: ByteArray): String {
         val sb = StringBuilder()
         for (i in bytes.indices.reversed()) {
-            val b: Byte = bytes[i] and 0xff.toByte()
+            val b: Int = bytes[i].toInt() and 0xff
             if (b < 0x10) sb.append('0')
-            sb.append(Integer.toHexString(b.toInt()))
+            sb.append(Integer.toHexString(b))
             if (i > 0) {
                 sb.append(" ")
             }
@@ -188,9 +188,9 @@ class MainActivity : AppCompatActivity() {
             if (i > 0) {
                 sb.append(" ")
             }
-            val b: Byte = bytes[i] and 0xff.toByte()
+            val b: Int = bytes[i].toInt() and 0xff
             if (b < 0x10) sb.append('0')
-            sb.append(Integer.toHexString(b.toInt()))
+            sb.append(Integer.toHexString(b))
         }
         return sb.toString()
     }
@@ -216,6 +216,7 @@ class MainActivity : AppCompatActivity() {
         }
         return result
     }
+
 
 
     private fun getRequest(){
