@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
@@ -52,12 +52,12 @@
         "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\drawable\\logo.png"
     },
     {
-        "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\xml_network_security_config.xml.flat",
         "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",

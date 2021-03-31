@@ -69,6 +69,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun resolveIntent(intent: Intent) {
 
+        /*QUI CHIEDI A SERVER*/
+        getRequest()
+        /*QUI CHIEDI A SERVER*/
+
         val action = intent.action
         if (NfcAdapter.ACTION_TAG_DISCOVERED == action || NfcAdapter.ACTION_TECH_DISCOVERED == action || NfcAdapter.ACTION_NDEF_DISCOVERED == action) {
             val rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
