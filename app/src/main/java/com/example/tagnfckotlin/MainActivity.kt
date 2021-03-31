@@ -69,9 +69,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun resolveIntent(intent: Intent) {
 
-        /*QUI CHIEDI A SERVER*/
-        getRequest()
-        /*QUI CHIEDI A SERVER*/
         val action = intent.action
         if (NfcAdapter.ACTION_TAG_DISCOVERED == action || NfcAdapter.ACTION_TECH_DISCOVERED == action || NfcAdapter.ACTION_NDEF_DISCOVERED == action) {
             val rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
@@ -120,6 +117,10 @@ class MainActivity : AppCompatActivity() {
         sb.append("ID (reversed hex): ").append(toReversedHex(id)).append('\n')
         sb.append("ID (dec): ").append(toDec(id)).append('\n')
         sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n')
+
+        println(toHex(id).toString())
+        //deleteRequest(toHex(id).toString())
+
         val prefix = "android.nfc.tech."
         sb.append("Technologies: ")
         for (tech in tag.techList) {
@@ -229,4 +230,23 @@ class MainActivity : AppCompatActivity() {
         })
         println("fine getRequest")
     }
+
+    private fun deleteRequest(id : String){
+        val request = Request.Builder()
+            .url(url+id ) //aggiungo in fondo all'url l'id della postazione da eliminare, perché l'API accetta questo formato
+            .delete()
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {println("failure")}
+            //scrivo il risultato sul responseTextView
+            override fun onResponse(call: Call, response: Response) = println(response.body()!!.string())
+        })
+    }
+
+    fun getWorkstationStatus(json : String, id : String){
+        //if(json.split(id))
+    }
+
+
 }
