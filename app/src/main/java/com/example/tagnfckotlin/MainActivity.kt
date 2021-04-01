@@ -1,5 +1,6 @@
 package com.example.tagnfckotlin
 
+
 import android.app.PendingIntent
 import android.content.Intent
 import android.nfc.NdefMessage
@@ -10,6 +11,7 @@ import android.nfc.tech.MifareClassic
 import android.nfc.tech.MifareUltralight
 import android.os.Bundle
 import android.os.Parcelable
+import android.os.StrictMode
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
@@ -20,16 +22,21 @@ import com.example.tagnfckotlin.record.ParsedNdefRecord
 import kotlin.experimental.and
 
 
-import java.io.IOException
-
 class MainActivity : AppCompatActivity() {
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
 
-    private val client = HttpClient("http://192.168.0.101:8000/workstation/")
+    val url = "http://192.168.0.101:8000/workstation/"
+    private val client = HttpClient(url)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //non bisognerebbe usare lo stesso thread dell'applicazione per fare chiamate internet.
+        //Però io ho bisogno di farlo lo stesso, quindi setto la policy in modo che non lo rilevi
+        //val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        //StrictMode.setThreadPolicy(policy)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         text = findViewById<View>(R.id.text) as TextView
@@ -66,10 +73,13 @@ class MainActivity : AppCompatActivity() {
         resolveIntent(intent)
     }
 
+    fun printString(s : String){
+        println(s)
+    }
     private fun resolveIntent(intent: Intent) {
 
         /*QUI CHIEDI A SERVER*/
-        client.getRequest()
+        client.getRequest(){s : String -> printString(s)}
         /*QUI CHIEDI A SERVER*/
 
         val action = intent.action
@@ -215,16 +225,6 @@ class MainActivity : AppCompatActivity() {
             factor *= 256L
         }
         return result
-    }
-
-
-
-
-
-
-
-    fun getWorkstationStatus(json : String, id : String){
-        //if(json.split(id))
     }
 
 
