@@ -19,7 +19,7 @@ import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
 import kotlin.experimental.and
 
-import okhttp3.*
+
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
 
-    private val client = OkHttpClient()
-    val url = "http://192.168.0.101:8000/workstation/"
+    private val client = HttpClient("http://192.168.0.101:8000/workstation/")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     private fun resolveIntent(intent: Intent) {
 
         /*QUI CHIEDI A SERVER*/
-        getRequest()
+        client.getRequest()
         /*QUI CHIEDI A SERVER*/
 
         val action = intent.action
@@ -121,9 +120,6 @@ class MainActivity : AppCompatActivity() {
         sb.append("ID (reversed hex): ").append(toReversedHex(id)).append('\n')
         sb.append("ID (dec): ").append(toDec(id)).append('\n')
         sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n')
-
-        println(toHex(id).toString())
-        //deleteRequest(toHex(id).toString())
 
         val prefix = "android.nfc.tech."
         sb.append("Technologies: ")
@@ -223,31 +219,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun getRequest(){
-        val request = Request.Builder()
-            .url(url)
-            .build()
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {println(e)}
 
-            override fun onResponse(call: Call, response: Response) = println(response.body()!!.string())
-        })
-        println("fine getRequest")
-    }
 
-    private fun deleteRequest(id : String){
-        val request = Request.Builder()
-            .url(url+id ) //aggiungo in fondo all'url l'id della postazione da eliminare, perché l'API accetta questo formato
-            .delete()
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {println("failure")}
-            //scrivo il risultato sul responseTextView
-            override fun onResponse(call: Call, response: Response) = println(response.body()!!.string())
-        })
-    }
 
     fun getWorkstationStatus(json : String, id : String){
         //if(json.split(id))
