@@ -79,7 +79,9 @@ class MainActivity : AppCompatActivity() {
     private fun resolveIntent(intent: Intent) {
 
         /*QUI CHIEDI A SERVER*/
-        client.getRequest(){s : String -> printString(s)}
+
+        //client.insertRequest(json, this::printString)
+        client.deleteRequest(123,this::printString)
         /*QUI CHIEDI A SERVER*/
 
         val action = intent.action
