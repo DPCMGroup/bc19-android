@@ -1,5 +1,6 @@
 package com.example.tagnfckotlin
 
+
 import android.app.PendingIntent
 import android.content.Intent
 import android.nfc.NdefMessage
@@ -10,6 +11,7 @@ import android.nfc.tech.MifareClassic
 import android.nfc.tech.MifareUltralight
 import android.os.Bundle
 import android.os.Parcelable
+import android.os.StrictMode
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
@@ -19,18 +21,22 @@ import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
 import kotlin.experimental.and
 
-import okhttp3.*
-import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
 
-    private val client = OkHttpClient()
     val url = "http://192.168.0.101:8000/workstation/"
+    private val client = HttpClient(url)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //non bisognerebbe usare lo stesso thread dell'applicazione per fare chiamate internet.
+        //Però io ho bisogno di farlo lo stesso, quindi setto la policy in modo che non lo rilevi
+        //val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        //StrictMode.setThreadPolicy(policy)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         text = findViewById<View>(R.id.text) as TextView
@@ -67,10 +73,15 @@ class MainActivity : AppCompatActivity() {
         resolveIntent(intent)
     }
 
+    fun printString(s : String){
+        println(s)
+    }
     private fun resolveIntent(intent: Intent) {
 
         /*QUI CHIEDI A SERVER*/
-        getRequest()
+
+        //client.insertRequest(json, this::printString)
+        client.deleteRequest(123,this::printString)
         /*QUI CHIEDI A SERVER*/
 
         val action = intent.action
@@ -121,9 +132,6 @@ class MainActivity : AppCompatActivity() {
         sb.append("ID (reversed hex): ").append(toReversedHex(id)).append('\n')
         sb.append("ID (dec): ").append(toDec(id)).append('\n')
         sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n')
-
-        println(toHex(id).toString())
-        //deleteRequest(toHex(id).toString())
 
         val prefix = "android.nfc.tech."
         sb.append("Technologies: ")
@@ -219,38 +227,6 @@ class MainActivity : AppCompatActivity() {
             factor *= 256L
         }
         return result
-    }
-
-
-
-    private fun getRequest(){
-        val request = Request.Builder()
-            .url(url)
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {println(e)}
-
-            override fun onResponse(call: Call, response: Response) = println(response.body()!!.string())
-        })
-        println("fine getRequest")
-    }
-
-    private fun deleteRequest(id : String){
-        val request = Request.Builder()
-            .url(url+id ) //aggiungo in fondo all'url l'id della postazione da eliminare, perché l'API accetta questo formato
-            .delete()
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {println("failure")}
-            //scrivo il risultato sul responseTextView
-            override fun onResponse(call: Call, response: Response) = println(response.body()!!.string())
-        })
-    }
-
-    fun getWorkstationStatus(json : String, id : String){
-        //if(json.split(id))
     }
 
 
