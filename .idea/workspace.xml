@@ -28,7 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad50242a-0939-4e4e-a26e-1d499d2c6729" name="Default Changelist" comment="creato menu">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +228,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617392800309</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="creato menu">
+      <created>1617392822355</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617392822355</updated>
+    </task>
+    <task id="LOCAL-00009" summary="creato menu">
+      <created>1617392857952</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617392857952</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,10 +352,10 @@
     </state>
     <state x="156" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616761154538" />
     <state x="206" y="34" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617032948331" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1617278281742">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1617392859543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617278281742" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617392859543" />
     <state x="840" y="142" key="chooseDestDirectoryDialog" timestamp="1616435117652">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
