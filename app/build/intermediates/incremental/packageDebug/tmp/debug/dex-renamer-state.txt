@@ -1,7 +1,10 @@
-#Thu Apr 01 15:17:34 CEST 2021
-base.0=C\:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+#Fri Apr 02 21:43:44 CEST 2021
+path.2=classes2.dex
 path.1=classes.dex
-renamed.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\ivanp\\Desktop\\uni\\swe\\git\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+base.2=C\:\\DPCM\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.1=C\:\\DPCM\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+base.0=C\:\\DPCM\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex

@@ -25,6 +25,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.TagNFCKotlin" >
+        <activity
+            android:name="com.example.tagnfckotlin.MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
         <activity android:name="com.example.tagnfckotlin.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

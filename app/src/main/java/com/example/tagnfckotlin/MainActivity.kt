@@ -10,15 +10,21 @@ import android.nfc.Tag
 import android.nfc.tech.MifareClassic
 import android.nfc.tech.MifareUltralight
 import android.os.Bundle
+import android.os.FileUtils.copy
 import android.os.Parcelable
 import android.os.StrictMode
 import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
+import com.google.common.io.ByteStreams.copy
+import java.nio.file.Files.copy
+import java.util.Collections.copy
 import kotlin.experimental.and
 
 
@@ -52,6 +58,29 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.menu_item, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_prenota -> {
+                Toast.makeText(this, "Prenota ...", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.nav_vis -> {
+                Toast.makeText(this, "Visualizza ...", Toast.LENGTH_LONG).show()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()
