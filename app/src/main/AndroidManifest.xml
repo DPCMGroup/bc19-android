@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TagNFCKotlin">
+        <activity android:name=".ListaPostazioniActivity"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="BlockCovid">
@@ -28,9 +29,7 @@
         <activity android:name=".VisualizzaActivity" />
         <activity android:name=".PrenotaActivity" />
         <activity android:name=".GuidaActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

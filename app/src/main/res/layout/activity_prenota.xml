@@ -62,7 +62,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/cerca"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"

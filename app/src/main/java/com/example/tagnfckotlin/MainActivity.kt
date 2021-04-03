@@ -173,6 +173,9 @@ class MainActivity : AppCompatActivity() {
         sb.append("ID (reversed hex): ").append(toReversedHex(id)).append('\n')
         sb.append("ID (dec): ").append(toDec(id)).append('\n')
         sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n')
+         val igienizza =  findViewById<Button>(R.id.igienizza)
+        // Rende visibile bottone
+        igienizza.setVisibility(View.VISIBLE)
 
         val prefix = "android.nfc.tech."
         sb.append("Technologies: ")
