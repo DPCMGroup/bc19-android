@@ -23,7 +23,7 @@
 15-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:9:22-64
 16
 17    <application
-17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-32:19
+17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-33:19
 18        android:allowBackup="true"
 18-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:12:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -42,34 +42,37 @@
 26        android:testOnly="true"
 27        android:theme="@style/Theme.TagNFCKotlin" >
 27-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:18:9-50
-28        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
-28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-62
-28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:19-50
-29        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
-29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-51
-29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:19-48
-30        <activity
-30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:9-24:69
-31            android:name="com.example.tagnfckotlin.MainActivity2"
-31-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:22:13-42
-32            android:label="@string/title_activity_main2"
-32-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:23:13-57
-33            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
-33-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:24:13-66
-34        <activity android:name="com.example.tagnfckotlin.MainActivity" >
-34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:9-31:20
-34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:19-47
-35            <intent-filter>
-35-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:13-30:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:17-69
-36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:29:17-77
-38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:29:27-74
-39            </intent-filter>
-40        </activity>
-41    </application>
-42
-43</manifest>
+28        <activity android:name="com.example.tagnfckotlin.VisualizzaActivity" />
+28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-65
+28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:19-53
+29        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
+29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-53
+29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:19-50
+30        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
+30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:9-51
+30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:19-48
+31        <activity
+31-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:22:9-25:69
+32            android:name="com.example.tagnfckotlin.MainActivity2"
+32-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:23:13-42
+33            android:label="@string/title_activity_main2"
+33-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:24:13-57
+34            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
+34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:13-66
+35        <activity android:name="com.example.tagnfckotlin.MainActivity" >
+35-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:9-32:20
+35-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:19-47
+36            <intent-filter>
+36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:13-31:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:28:17-69
+37-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:28:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:17-77
+39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:27-74
+40            </intent-filter>
+41        </activity>
+42    </application>
+43
+44</manifest>

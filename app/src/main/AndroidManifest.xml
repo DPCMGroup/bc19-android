@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TagNFCKotlin">
-        <activity android:name=".PrenotaActivity"></activity>
+        <activity android:name=".VisualizzaActivity"></activity>
+        <activity android:name=".PrenotaActivity" />
         <activity android:name=".GuidaActivity" />
         <activity
             android:name=".MainActivity2"

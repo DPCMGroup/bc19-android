@@ -72,8 +72,13 @@ class MainActivity : AppCompatActivity() {
                 startActivity(moveIntent)
                 return true
             }
-            R.id.nav_vis -> {
+            R.id.nav_guida -> {
                 var moveIntent =Intent(this, GuidaActivity::class.java)
+                startActivity(moveIntent)
+                return true
+            }
+            R.id.nav_vis -> {
+                var moveIntent =Intent(this, VisualizzaActivity::class.java)
                 startActivity(moveIntent)
                 return true
             }

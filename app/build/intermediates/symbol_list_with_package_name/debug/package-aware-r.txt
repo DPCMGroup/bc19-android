@@ -1987,6 +1987,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id nav_controller_view_tag
+id nav_guida
 id nav_host_fragment_container
 id nav_prenota
 id nav_vis
@@ -2212,6 +2213,7 @@ layout abc_tooltip
 layout activity_guida
 layout activity_main
 layout activity_prenota
+layout activity_visualizza
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
