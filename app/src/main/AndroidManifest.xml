@@ -16,10 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TagNFCKotlin">
+        <activity android:name=".PrenotaActivity"></activity>
+        <activity android:name=".GuidaActivity" />
         <activity
             android:name=".MainActivity2"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.TagNFCKotlin.NoActionBar"></activity>
+            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

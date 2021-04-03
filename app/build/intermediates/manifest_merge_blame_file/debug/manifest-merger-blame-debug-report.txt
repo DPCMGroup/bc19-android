@@ -23,11 +23,11 @@
 15-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:9:22-64
 16
 17    <application
-17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-30:19
+17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-32:19
 18        android:allowBackup="true"
 18-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:12:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.3.2] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:24:18-86
+19-->[androidx.core:core:1.3.2] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\b4a4e2693d052802666bef6cc39feff5\core-1.3.2\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@drawable/logo"
 21-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:13:9-38
@@ -42,28 +42,34 @@
 26        android:testOnly="true"
 27        android:theme="@style/Theme.TagNFCKotlin" >
 27-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:18:9-50
-28        <activity
-28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-22:78
-29            android:name="com.example.tagnfckotlin.MainActivity2"
-29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:13-42
-30            android:label="@string/title_activity_main2"
-30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:13-57
-31            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
-31-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:22:13-66
-32        <activity android:name="com.example.tagnfckotlin.MainActivity" >
-32-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:23:9-29:20
-32-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:23:19-47
-33            <intent-filter>
-33-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:24:13-28:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:17-69
-34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:25-66
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:17-77
-36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:27-74
-37            </intent-filter>
-38        </activity>
-39    </application>
-40
-41</manifest>
+28        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
+28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-62
+28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:19-50
+29        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
+29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-51
+29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:19-48
+30        <activity
+30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:9-24:69
+31            android:name="com.example.tagnfckotlin.MainActivity2"
+31-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:22:13-42
+32            android:label="@string/title_activity_main2"
+32-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:23:13-57
+33            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
+33-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:24:13-66
+34        <activity android:name="com.example.tagnfckotlin.MainActivity" >
+34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:9-31:20
+34-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:25:19-47
+35            <intent-filter>
+35-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:13-30:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:17-69
+36-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:27:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:29:17-77
+38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:29:27-74
+39            </intent-filter>
+40        </activity>
+41    </application>
+42
+43</manifest>

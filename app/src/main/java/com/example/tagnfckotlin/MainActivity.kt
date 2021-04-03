@@ -68,11 +68,13 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_prenota -> {
-                Toast.makeText(this, "Prenota ...", Toast.LENGTH_LONG).show()
+                var moveIntent =Intent(this, PrenotaActivity::class.java)
+                startActivity(moveIntent)
                 return true
             }
             R.id.nav_vis -> {
-                Toast.makeText(this, "Visualizza ...", Toast.LENGTH_LONG).show()
+                var moveIntent =Intent(this, GuidaActivity::class.java)
+                startActivity(moveIntent)
                 return true
             }
             else -> {

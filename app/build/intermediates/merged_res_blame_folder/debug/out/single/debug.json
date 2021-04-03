@@ -4,6 +4,10 @@
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_guida.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_guida.xml"
+    },
+    {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
@@ -14,6 +18,10 @@
     {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_prenota.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_prenota.xml"
     },
     {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
