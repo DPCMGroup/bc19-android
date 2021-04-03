@@ -17,6 +17,7 @@ import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +58,8 @@ class MainActivity : AppCompatActivity() {
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
 
 
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -87,6 +90,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
     override fun onResume() {

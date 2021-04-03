@@ -50,13 +50,15 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
-        android:enabled="false"
+        android:color="@color/purple_500"
         android:text="Accedi"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.2"/>
+
 
     <ProgressBar
         android:id="@+id/loading"
@@ -73,4 +75,5 @@
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

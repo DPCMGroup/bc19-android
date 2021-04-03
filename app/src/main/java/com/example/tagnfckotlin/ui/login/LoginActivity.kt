@@ -1,6 +1,7 @@
 package com.example.tagnfckotlin.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.tagnfckotlin.MainActivity
 
 import com.example.tagnfckotlin.R
 
@@ -25,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
+
 
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
@@ -58,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
             }
-            setResult(Activity.RESULT_OK)
+            setResult(RESULT_OK)
 
             //Complete and destroy login activity once successful
             finish()
@@ -94,16 +97,28 @@ class LoginActivity : AppCompatActivity() {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
+
+        }
+        login.setOnClickListener {
+            loading.visibility = View.VISIBLE
+            loginViewModel.login(username.text.toString(), password.text.toString())
+            var moveIntent = Intent(
+                this, MainActivity::class.java)
+            startActivity(moveIntent)
         }
     }
 
+
     private fun updateUiWithUser(model: LoggedInUserView) {
+
         val welcome = getString(R.string.welcome)
+        val username = findViewById<EditText>(R.id.username)
+        val user = username.text.toString()
         val displayName = model.displayName
         // TODO : initiate successful logged in experience
         Toast.makeText(
             applicationContext,
-            "$welcome $displayName",
+            "$welcome $user!",
             Toast.LENGTH_LONG
         ).show()
     }
@@ -111,6 +126,8 @@ class LoginActivity : AppCompatActivity() {
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
+
+
 }
 
 /**

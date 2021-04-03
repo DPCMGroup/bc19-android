@@ -27,20 +27,17 @@
         android:theme="@style/Theme.TagNFCKotlin" >
         <activity
             android:name="com.example.tagnfckotlin.ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name="com.example.tagnfckotlin.VisualizzaActivity" />
-        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
-        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
-        <activity
-            android:name="com.example.tagnfckotlin.MainActivity2"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.TagNFCKotlin.NoActionBar" />
-        <activity android:name="com.example.tagnfckotlin.MainActivity" >
+            android:label="BlockCovid" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.example.tagnfckotlin.VisualizzaActivity" />
+        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
+        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
+        <activity android:name="com.example.tagnfckotlin.MainActivity" >
         </activity>
     </application>
 
