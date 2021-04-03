@@ -1813,7 +1813,6 @@ id beginning
 id blocking
 id bottom
 id bounce
-id button
 id buttonPanel
 id cache_measures
 id calendarView
@@ -1821,6 +1820,7 @@ id cancel_button
 id center
 id center_horizontal
 id center_vertical
+id cerca
 id chain
 id chains
 id checkbox
@@ -1915,6 +1915,7 @@ id honorRequest
 id icon
 id icon_group
 id ifRoom
+id igienizza
 id ignore
 id ignoreRequest
 id image
@@ -2223,6 +2224,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_guida
+layout activity_lista_postazioni
 layout activity_login
 layout activity_main
 layout activity_prenota

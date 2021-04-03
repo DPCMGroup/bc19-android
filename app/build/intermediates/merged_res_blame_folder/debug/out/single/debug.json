@@ -36,6 +36,10 @@
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_menu.xml"
     },
     {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_lista_postazioni.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_lista_postazioni.xml"
+    },
+    {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\xml_network_security_config.xml.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\xml\\network_security_config.xml"
     },
