@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
 
-    val url = "http://192.168.0.101:8000/workstation/"
+    val url = "http://192.168.210.35:8000/workstation/"
     private val client = HttpClient(url)
 
     override fun onCreate(savedInstanceState: Bundle?) {
