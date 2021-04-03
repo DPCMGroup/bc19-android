@@ -1664,6 +1664,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bordo
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1813,6 +1814,7 @@ id bounce
 id button
 id buttonPanel
 id cache_measures
+id calendarView
 id cancel_button
 id center
 id center_horizontal
@@ -1858,6 +1860,7 @@ id design_menu_item_text
 id design_navigation_view
 id dialog_button
 id dimensions
+id dipTesto
 id direct
 id disableHome
 id disablePostScroll
@@ -2001,6 +2004,8 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id oraFineTesto
+id oraInizioTesto
 id outline
 id outward
 id packed
@@ -2074,6 +2079,7 @@ id src_atop
 id src_in
 id src_over
 id standard
+id stanzaTesto
 id start
 id startHorizontal
 id startToEnd

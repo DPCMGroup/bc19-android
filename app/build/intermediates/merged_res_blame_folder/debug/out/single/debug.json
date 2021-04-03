@@ -68,6 +68,10 @@
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\xml\\network_security_config.xml"
     },
     {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bordo.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\bordo.xml"
+    },
+    {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\logo.png"
     },
