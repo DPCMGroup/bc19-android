@@ -84,7 +84,9 @@
         android:layout_height="42dp"
         android:layout_marginStart="185dp"
         android:layout_marginTop="310dp"
-        android:text="" />
+
+        android:ems="10"
+        android:inputType="time"/>
 
     <EditText
         android:id="@+id/oraInizioTesto"
@@ -92,7 +94,9 @@
         android:layout_height="42dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="310dp"
-        android:text="" />
+
+        android:ems="10"
+        android:inputType="time"/>
 
     <EditText
         android:id="@+id/stanzaTesto"
@@ -100,7 +104,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="385dp"
-        android:text="" />
+         />
 
     <EditText
         android:id="@+id/dipTesto"
@@ -108,7 +112,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="460dp"
-        android:text="" />
+         />
 
 
 
