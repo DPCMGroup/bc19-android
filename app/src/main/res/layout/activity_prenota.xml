@@ -6,47 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".PrenotaActivity">
 
+
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="215dp"
         android:text="Stanza:"
         android:textSize="20sp" />
+
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="435dp"
+        android:layout_marginTop="285dp"
         android:text="Nome Dipendente:"
-        android:textSize="20sp"
 
-        />
-
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="185dp"
-        android:layout_marginTop="285dp"
-        android:text="Ora Fine:"
 
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="145dp"
+
+        android:text="Ora Fine:"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="293dp"
-        android:layout_height="59dp"
+        android:layout_width="69dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:text="Data:"
         android:textSize="20sp" />
 
@@ -55,9 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="75dp"
         android:text="Ora Inizio:"
         android:textSize="20sp" />
 
@@ -66,55 +70,76 @@
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="410dp"
         android:text="Cerca" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="-13dp" />
-
-    <EditText
-        android:id="@+id/oraFineTesto"
-        android:layout_width="100dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="185dp"
-        android:layout_marginTop="310dp"
-
-        android:ems="10"
-        android:inputType="time"/>
-
-    <EditText
-        android:id="@+id/oraInizioTesto"
-        android:layout_width="100dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="310dp"
-
-        android:ems="10"
-        android:inputType="time"/>
 
     <EditText
         android:id="@+id/stanzaTesto"
         android:layout_width="165dp"
         android:layout_height="42dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="385dp"
+        android:layout_marginTop="235dp"
          />
 
     <EditText
         android:id="@+id/dipTesto"
         android:layout_width="165dp"
         android:layout_height="42dp"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="460dp"
-         />
+        android:layout_marginTop="305dp" />
 
+    <EditText
+        android:id="@+id/dataTesto"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="3dp" />
 
+    <EditText
+        android:id="@+id/inizioTesto"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="72dp" />
+
+    <EditText
+        android:id="@+id/fineTesto"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="142dp" />
+    <Button
+        android:id="@+id/SelezionaData"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="35dp"
+        android:text="Seleziona Data"/>
+    <Button
+        android:id="@+id/SelezionaInizio"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="105dp"
+        android:text="Seleziona Ora Inizio" />
+
+    <Button
+        android:id="@+id/SelezionaFine"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="175dp"
+        android:text="Seleziona Ora Fine" />
 
 
 </RelativeLayout>

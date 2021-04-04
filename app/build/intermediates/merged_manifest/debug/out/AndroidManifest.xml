@@ -36,7 +36,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.tagnfckotlin.VisualizzaActivity" />
-        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
+        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" >
+        </activity>
         <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
         <activity android:name="com.example.tagnfckotlin.MainActivity" />
     </application>

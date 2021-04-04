@@ -1738,6 +1738,9 @@ id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
+id SelezionaData
+id SelezionaFine
+id SelezionaInizio
 id TOP_END
 id TOP_START
 id accelerate
@@ -1815,7 +1818,6 @@ id bottom
 id bounce
 id buttonPanel
 id cache_measures
-id calendarView
 id cancel_button
 id center
 id center_horizontal
@@ -1848,6 +1850,7 @@ id counterclockwise
 id custom
 id customPanel
 id cut
+id dataTesto
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -1892,6 +1895,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id fineTesto
 id fitToContents
 id fixed
 id flip
@@ -1920,6 +1924,7 @@ id ignore
 id ignoreRequest
 id image
 id info
+id inizioTesto
 id invisible
 id inward
 id italic
@@ -2009,8 +2014,6 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
-id oraFineTesto
-id oraInizioTesto
 id outline
 id outward
 id packed

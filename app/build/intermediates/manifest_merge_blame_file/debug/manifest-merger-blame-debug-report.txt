@@ -23,7 +23,7 @@
 15-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:9:22-64
 16
 17    <application
-17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-33:19
+17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-35:19
 18        android:allowBackup="true"
 18-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:12:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -46,7 +46,7 @@
 28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-70
 28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:19-58
 29        <activity
-29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-28:20
+29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-29:20
 30            android:name="com.example.tagnfckotlin.ui.login.LoginActivity"
 30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:13-51
 31            android:label="BlockCovid" >
@@ -63,17 +63,18 @@
 36            </intent-filter>
 37        </activity>
 38        <activity android:name="com.example.tagnfckotlin.VisualizzaActivity" />
-38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:29:9-56
-38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:29:19-53
-39        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" />
-39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:9-53
-39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:19-50
-40        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
-40-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:9-51
-40-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:19-48
-41        <activity android:name="com.example.tagnfckotlin.MainActivity" />
-41-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:32:9-59
-41-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:32:19-47
-42    </application>
-43
-44</manifest>
+38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:9-56
+38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:19-53
+39        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" >
+39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:9-32:20
+39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:19-50
+40        </activity>
+41        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
+41-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:33:9-51
+41-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:33:19-48
+42        <activity android:name="com.example.tagnfckotlin.MainActivity" />
+42-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:34:9-59
+42-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:34:19-47
+43    </application>
+44
+45</manifest>

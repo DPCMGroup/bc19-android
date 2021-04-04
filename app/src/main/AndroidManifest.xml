@@ -25,9 +25,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".VisualizzaActivity" />
-        <activity android:name=".PrenotaActivity" />
+        <activity android:name=".PrenotaActivity" >
+        </activity>
         <activity android:name=".GuidaActivity" />
         <activity android:name=".MainActivity"></activity>
     </application>
