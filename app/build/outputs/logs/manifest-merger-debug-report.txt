@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.4] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\842e4fcdd44b4da95133aa4a65168265\navigation-fragment-ktx-2.3.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\39eb8416ed6a16c82384e0963a3e51ee\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.3.4] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\511eb9de146e30bfcfd6f867dadbc3b1\navigation-ui-ktx-2.3.4\AndroidManifest.xml:17:1-24:12
@@ -54,20 +54,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Matteo\.gradle\c
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\879f794d0cfdcc2baa4e38b9307f9b7d\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\19ea4e1b75ee94e7c61b291d96db2ad0\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\146d9606179ad789ff06a3de68cc2316\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
 		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:2:11-69
@@ -86,7 +86,7 @@ MERGED from [com.github.VishnuSivadasVS:Advanced-HttpURLConnection:1.2] C:\Users
 	android:name
 		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:9:22-64
 application
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-35:19
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-37:19
 MERGED from [com.google.android.material:material:1.4.0-alpha02] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\c90b1a982c6a6858a06920311ae4165d\material-1.4.0-alpha02\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0-alpha02] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\c90b1a982c6a6858a06920311ae4165d\material-1.4.0-alpha02\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\72691b028e2607960eb095b9c8187fd9\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -116,7 +116,7 @@ ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-70
 	android:name
 		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:19-58
 activity#com.example.tagnfckotlin.ui.login.LoginActivity
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-29:20
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-30:20
 	android:label
 		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:22:13-39
 	android:name
@@ -132,21 +132,21 @@ ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
 		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:27-74
 activity#com.example.tagnfckotlin.VisualizzaActivity
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:9-56
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:9-56
 	android:name
-		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:30:19-53
+		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:19-53
 activity#com.example.tagnfckotlin.PrenotaActivity
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:9-32:20
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:32:9-34:20
 	android:name
-		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:19-50
+		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:32:19-50
 activity#com.example.tagnfckotlin.GuidaActivity
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:33:9-51
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:35:9-51
 	android:name
-		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:33:19-48
+		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:35:19-48
 activity#com.example.tagnfckotlin.MainActivity
-ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:34:9-59
+ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:36:9-59
 	android:name
-		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:34:19-47
+		ADDED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:36:19-47
 uses-sdk
 INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml

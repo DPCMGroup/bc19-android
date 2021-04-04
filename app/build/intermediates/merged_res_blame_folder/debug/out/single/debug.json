@@ -92,16 +92,24 @@
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ora.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_ora.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_calendario.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_calendario.xml"
+    },
+    {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_username.xml.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_username.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,7 @@ class PrenotaActivity : AppCompatActivity() {
                     this, ListaPostazioniActivity::class.java)
             startActivity(moveIntent)
         }
-        val SelezionaData = findViewById<Button>(R.id.SelezionaData)
+        val SelezionaData = findViewById<ImageButton>(R.id.SelezionaData)
         val dataTesto = findViewById<TextView>(R.id.dataTesto)
 
         val now = Calendar.getInstance()
@@ -43,7 +44,7 @@ class PrenotaActivity : AppCompatActivity() {
             dpd.show()
         }
 
-        val SelezionaInizio = findViewById<Button>(R.id.SelezionaInizio)
+        val SelezionaInizio = findViewById<ImageButton>(R.id.SelezionaInizio)
         val inizioTesto     = findViewById<TextView>(R.id.inizioTesto)
 
         SelezionaInizio.setOnClickListener {
@@ -56,7 +57,7 @@ class PrenotaActivity : AppCompatActivity() {
             TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
         }
 
-        val SelezionaFine = findViewById<Button>(R.id.SelezionaFine)
+        val SelezionaFine = findViewById<ImageButton>(R.id.SelezionaFine)
         val fineTesto     = findViewById<TextView>(R.id.fineTesto)
 
         SelezionaFine.setOnClickListener {

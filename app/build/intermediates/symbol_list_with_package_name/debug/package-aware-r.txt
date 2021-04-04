@@ -1726,6 +1726,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_calendario
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -1735,6 +1736,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_ora
 drawable ic_password
 drawable ic_username
 drawable logo
@@ -1778,6 +1780,7 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id CercaPost
 id FUNCTION
 id Login
 id META
