@@ -23,6 +23,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
+import com.example.tagnfckotlin.ui.login.LoginActivity
 import com.google.common.io.ByteStreams.copy
 import java.nio.file.Files.copy
 import java.util.Collections.copy
@@ -82,6 +83,11 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_vis -> {
                 var moveIntent =Intent(this, VisualizzaActivity::class.java)
+                startActivity(moveIntent)
+                return true
+            }
+            R.id.logout -> {
+                var moveIntent =Intent(this, LoginActivity::class.java)
                 startActivity(moveIntent)
                 return true
             }
