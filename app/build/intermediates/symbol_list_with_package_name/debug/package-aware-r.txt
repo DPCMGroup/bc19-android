@@ -1978,6 +1978,7 @@ id ignoreRequest
 id image
 id info
 id inizioTesto
+id intro_txt
 id invisible
 id inward
 id italic
@@ -1986,6 +1987,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layout_item
 id left
 id leftToRight
 id line1
@@ -2092,6 +2094,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerView
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2150,11 +2153,13 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id status_txt
 id stop
 id stretch
 id submenuarrow
 id submit_area
 id tabMode
+id tagId_txt
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2217,6 +2222,7 @@ id visible
 id visible_removing_fragment_view_tag
 id withText
 id withinBounds
+id workstationid_txt
 id wrap
 id wrap_content
 id zero_corner_chip
@@ -2378,6 +2384,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout workstations_item
 menu menu_item
 mipmap ic_launcher
 mipmap ic_launcher_round

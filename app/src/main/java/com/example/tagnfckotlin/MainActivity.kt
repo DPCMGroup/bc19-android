@@ -9,10 +9,9 @@ import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.MifareClassic
 import android.nfc.tech.MifareUltralight
+import android.os.AsyncTask
 import android.os.Bundle
-import android.os.FileUtils.copy
 import android.os.Parcelable
-import android.os.StrictMode
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
@@ -21,12 +20,23 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
 import com.example.tagnfckotlin.ui.login.LoginActivity
-import com.google.common.io.ByteStreams.copy
-import java.nio.file.Files.copy
-import java.util.Collections.copy
+import org.checkerframework.checker.units.qual.C
+import org.json.JSONException
+import org.json.JSONObject
+import org.w3c.dom.Text
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.MalformedURLException
+import java.net.URL
+import java.util.ArrayList
 import kotlin.experimental.and
 
 
@@ -35,8 +45,16 @@ class MainActivity : AppCompatActivity() {
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
 
-    val url = "http://192.168.210.35:8000/workstation/"
-    private val client = HttpClient(url)
+    var workstationList: MutableList<WorkstationModelClass>? = null
+    var recyclerView: RecyclerView? = null
+
+    //val url = "http://192.168.210.35:8000/workstation/"
+
+    //ho utilizzato questo url per semplicità di test
+    val url_json="https://run.mocky.io/v3/ada3dade-7c4b-47f4-bfae-f7ed5149214b"
+
+
+    private val client = HttpClient(url_json)
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -59,9 +77,91 @@ class MainActivity : AppCompatActivity() {
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
 
 
-
-
+        workstationList = ArrayList()
+        recyclerView = findViewById(R.id.recyclerView)
+        val getData = GetData()
+        getData.execute()
     }
+
+
+    inner class GetData : AsyncTask<String?, String?, String>() {
+        override fun doInBackground(vararg p0: String?): String? {
+            var current = ""
+            try {
+                val url: URL
+                var urlConnection: HttpURLConnection? = null
+                try {
+                    url = URL(url_json)
+
+                    urlConnection = url.openConnection() as HttpURLConnection
+                    val `is` = urlConnection.inputStream
+                    val isr = InputStreamReader(`is`)
+                    var data = isr.read()
+                    while (data != -1) {
+                        current += data.toChar()
+                        data = isr.read()
+                    }
+                    return current
+                } catch (e: MalformedURLException) {
+                    e.printStackTrace()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                } finally {
+                    urlConnection?.disconnect()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            return current
+        }
+
+        override fun onPostExecute(s: String) {
+            try {
+                val jsonObject = JSONObject(s)
+                val jsonArray = jsonObject.getJSONArray("workstations")
+
+                val tagId= findViewById<TextView>(R.id.tagId_txt)
+
+                //elimino le postazioni per effettuare nuove scansioni e avere la lista di nuovo vuota
+                for (i in 0 until workstationList!!.size)
+                    workstationList!!.removeAt(i)
+
+                for (i in 0 until jsonArray.length()) {
+                    val jsonObject1 = jsonArray.getJSONObject(i)
+                    val model = WorkstationModelClass()
+                    model.WorkstationId = jsonObject1.getString("WorkstationId")
+                    model.Status = jsonObject1.getString("Status")
+
+                    //if(model.WorkstationId== "00 37 00 03 95 70 04")
+                    if(model.WorkstationId == tagId.text)
+                    //if(model.WorkstationId== "6")
+
+                    workstationList!!.add(model)
+                }
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+            PutDataIntoRecyclerView(workstationList)
+        }
+    }
+
+    private fun PutDataIntoRecyclerView(workstationList:List<WorkstationModelClass>?) {
+        val adaptery = Adaptery(this, workstationList!!)
+        recyclerView!!.layoutManager = LinearLayoutManager(this)
+        recyclerView!!.adapter = adaptery
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -148,6 +248,7 @@ class MainActivity : AppCompatActivity() {
                 val record = NdefRecord(NdefRecord.TNF_UNKNOWN, empty, id, payload)
                 val msg = NdefMessage(arrayOf(record))
                 msgs = arrayOf(msg)
+
             }
             displayMsgs(msgs)
         }
@@ -175,16 +276,42 @@ class MainActivity : AppCompatActivity() {
     private fun dumpTagData(tag: Tag): String {
         val sb = StringBuilder()
         val id = tag.id
+
+
         sb.append("ID (hex): ").append(toHex(id)).append('\n')
+
+        //salvo l'id su textView (tagId_txt, settato invisible)
+        val tagId= findViewById<TextView>(R.id.tagId_txt)
+        tagId.text= toHex(id)
+
+        //scorro la lista di workstations dopo aver effettuato la scansione del tag
+        val getData = GetData()
+        getData.execute()
+
+
+
+        /*
         sb.append("ID (reversed hex): ").append(toReversedHex(id)).append('\n')
         sb.append("ID (dec): ").append(toDec(id)).append('\n')
         sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n')
+         */
          val igienizza =  findViewById<Button>(R.id.igienizza)
         // Rende visibile bottone
         igienizza.setVisibility(View.VISIBLE)
 
+
+         // Rende visibile intro stato postazione
+         val intro =  findViewById<TextView>(R.id.intro_txt)
+        intro.setVisibility(View.VISIBLE)
+
+       // Rende visibile recycler view
+        val layout =  findViewById<RecyclerView>(R.id.recyclerView)
+        layout.setVisibility(View.VISIBLE)
+
+
+
         val prefix = "android.nfc.tech."
-        sb.append("Technologies: ")
+        sb.append("Tecnologie di scansione: ")
         for (tech in tag.techList) {
             sb.append(tech.substring(prefix.length))
             sb.append(", ")
@@ -243,6 +370,7 @@ class MainActivity : AppCompatActivity() {
         }
         return sb.toString()
     }
+
 
     private fun toReversedHex(bytes: ByteArray): String {
         val sb = StringBuilder()
