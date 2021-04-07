@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     //val url = "http://192.168.210.35:8000/workstation/"
 
     //ho utilizzato questo url per semplicità di test
-    val url_json="https://run.mocky.io/v3/ada3dade-7c4b-47f4-bfae-f7ed5149214b"
+    val url_json="https://run.mocky.io/v3/c3b3bc71-d601-4c19-bd6d-fc98b45d3057"
 
 
     private val client = HttpClient(url_json)
@@ -121,6 +121,10 @@ class MainActivity : AppCompatActivity() {
                 val jsonArray = jsonObject.getJSONArray("workstations")
 
                 val tagId= findViewById<TextView>(R.id.tagId_txt)
+                val igienizza = findViewById<Button>(R.id.igienizza)
+                val message =  findViewById<TextView>(R.id.message_txt)
+                igienizza.setVisibility(View.INVISIBLE)
+                message.setVisibility(View.INVISIBLE)
 
                 //elimino le postazioni per effettuare nuove scansioni e avere la lista di nuovo vuota
                 for (i in 0 until workstationList!!.size)
@@ -131,12 +135,24 @@ class MainActivity : AppCompatActivity() {
                     val model = WorkstationModelClass()
                     model.WorkstationId = jsonObject1.getString("WorkstationId")
                     model.Status = jsonObject1.getString("Status")
+                    model.BookedBy = jsonObject1.getString("BookedBy")
 
                     //if(model.WorkstationId== "00 37 00 03 95 70 04")
-                    if(model.WorkstationId == tagId.text)
                     //if(model.WorkstationId== "6")
+                    if(model.WorkstationId == tagId.text){
+                        if(model.Status == "libera e non igienizzata" || model.Status == "guasta e non igienizzata") {
+                            // Rende visibile bottone
+                            igienizza.setVisibility(View.VISIBLE)
+                        }
+                        if(model.Status == "non accessibile" || model.Status == "guasta e igienizzata") {
+                            // Rende visibile text view (mesaggio: postazione non accessibile)
+                            message.setVisibility(View.VISIBLE)
+                        }
+
+                        //da aggiungere controllo con BookedBy
 
                     workstationList!!.add(model)
+                    }
                 }
             } catch (e: JSONException) {
                 e.printStackTrace()
@@ -278,7 +294,7 @@ class MainActivity : AppCompatActivity() {
         val id = tag.id
 
 
-        sb.append("ID (hex): ").append(toHex(id)).append('\n')
+        //sb.append("ID (hex): ").append(toHex(id)).append('\n')
 
         //salvo l'id su textView (tagId_txt, settato invisible)
         val tagId= findViewById<TextView>(R.id.tagId_txt)
@@ -295,9 +311,7 @@ class MainActivity : AppCompatActivity() {
         sb.append("ID (dec): ").append(toDec(id)).append('\n')
         sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n')
          */
-         val igienizza =  findViewById<Button>(R.id.igienizza)
-        // Rende visibile bottone
-        igienizza.setVisibility(View.VISIBLE)
+
 
 
          // Rende visibile intro stato postazione
@@ -309,7 +323,7 @@ class MainActivity : AppCompatActivity() {
         layout.setVisibility(View.VISIBLE)
 
 
-
+/*
         val prefix = "android.nfc.tech."
         sb.append("Tecnologie di scansione: ")
         for (tech in tag.techList) {
@@ -355,6 +369,8 @@ class MainActivity : AppCompatActivity() {
                 sb.append(type)
             }
         }
+
+ */
         return sb.toString()
     }
 
@@ -371,7 +387,7 @@ class MainActivity : AppCompatActivity() {
         return sb.toString()
     }
 
-
+/*
     private fun toReversedHex(bytes: ByteArray): String {
         val sb = StringBuilder()
         for (i in bytes.indices) {
@@ -406,6 +422,6 @@ class MainActivity : AppCompatActivity() {
         }
         return result
     }
-
+*/
 
 }
