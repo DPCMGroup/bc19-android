@@ -123,8 +123,10 @@ class MainActivity : AppCompatActivity() {
                 val tagId= findViewById<TextView>(R.id.tagId_txt)
                 val igienizza = findViewById<Button>(R.id.igienizza)
                 val message =  findViewById<TextView>(R.id.message_txt)
+                val message1 =  findViewById<TextView>(R.id.message1_txt)
                 igienizza.setVisibility(View.INVISIBLE)
                 message.setVisibility(View.INVISIBLE)
+                message1.setVisibility(View.INVISIBLE)
 
                 //elimino le postazioni per effettuare nuove scansioni e avere la lista di nuovo vuota
                 for (i in 0 until workstationList!!.size)
@@ -145,8 +147,12 @@ class MainActivity : AppCompatActivity() {
                             igienizza.setVisibility(View.VISIBLE)
                         }
                         if(model.Status == "non accessibile" || model.Status == "guasta e igienizzata") {
-                            // Rende visibile text view (mesaggio: postazione non accessibile)
+                            // Rende visibile text view (messaggio: postazione non accessibile)
                             message.setVisibility(View.VISIBLE)
+                        }
+                        if(model.Status == "libera e igienizzata") {
+                            // Rende visibile text view (messaggio: prenota postazione dopo un minuto)
+                            message1.setVisibility(View.VISIBLE)
                         }
 
                         //da aggiungere controllo con BookedBy
