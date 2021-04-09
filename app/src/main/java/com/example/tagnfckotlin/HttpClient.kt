@@ -44,7 +44,8 @@ class HttpClient(val url: String){
             .post(body)
             .build()
 
-        sendRequest(request, then)
+        return sendRequest(request, then)
+
     }
 
 

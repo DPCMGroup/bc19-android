@@ -116,20 +116,20 @@ class LoginActivity : AppCompatActivity() {
            val json : JSONObject = createJsonObjact()
             client.login(json, ::println)
 
-
-
-                var moveIntent = Intent(
-                    this, MainActivity::class.java
-                )
-                startActivity(moveIntent)
-         /*   } else {
+println(client.login(json, ::println).toString())
+        if(client.login(json, ::println).toString().equals("\"No user found\"")) {
+            var moveIntent = Intent(
+                this, MainActivity::class.java
+            )
+            startActivity(moveIntent)
+        }
+            else {
                 var moveIntent = Intent(
                     this, LoginActivity::class.java
                 )
                 startActivity(moveIntent)
-            }*/
+            }
         }
-
 }
 
 private fun createJsonObjact(): JSONObject {
