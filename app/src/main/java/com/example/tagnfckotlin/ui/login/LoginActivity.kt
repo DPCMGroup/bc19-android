@@ -7,24 +7,27 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.tagnfckotlin.HttpClient
 import com.example.tagnfckotlin.MainActivity
 import com.example.tagnfckotlin.R
 import org.json.JSONObject
 import java.io.*
-import java.net.URL
-import java.net.URLConnection
 
 
 class LoginActivity : AppCompatActivity() {
 
+    val url_json = "http://192.168.177.15:8000/user/"
+
+    //ho utilizzato questo url per semplicità di test
+    //val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
+
+
+    private val client = HttpClient(url_json)
 
 
     private lateinit var loginViewModel: LoginViewModel
@@ -110,18 +113,20 @@ class LoginActivity : AppCompatActivity() {
         login.setOnClickListener {
             loading.visibility = View.VISIBLE
             loginViewModel.login(username.text.toString(), password.text.toString())
-            createJsonObjact()
+           val json : JSONObject = createJsonObjact()
+            client.login(json, ::println)
 
-            //  readjson()
-        //    if (readjson != "Not Found") {
+
+
                 var moveIntent = Intent(
                     this, MainActivity::class.java
                 )
                 startActivity(moveIntent)
-            /*} else {
-                val _loginForm = MutableLiveData<LoginFormState>()
-                val loginFormState: LiveData<LoginFormState> = _loginForm
-                _loginForm.value = LoginFormState(usernameError = R.string.invalid_username)
+         /*   } else {
+                var moveIntent = Intent(
+                    this, LoginActivity::class.java
+                )
+                startActivity(moveIntent)
             }*/
         }
 
@@ -138,7 +143,7 @@ println(Settings)
 // Convert JsonObject to String Format
 // Convert JsonObject to String Format
 
-saveJson(Settings.toString())
+//saveJson(Settings.toString())
 
 
 return Settings

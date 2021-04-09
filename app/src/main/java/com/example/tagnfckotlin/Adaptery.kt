@@ -19,9 +19,9 @@ class Adaptery(private val mContext: Context, private val mdata: List<Workstatio
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.WorkstationId.text = mdata[position].WorkstationId
-        holder.Status.text = mdata[position].Status
-        holder.BookedBy.text = mdata[position].BookedBy
+        holder.tag.text = mdata[position].tag
+        holder.state.text = mdata[position].state.toString()
+      //  holder.BookedBy.text = mdata[position].BookedBy
 
 
     }
@@ -31,15 +31,15 @@ class Adaptery(private val mContext: Context, private val mdata: List<Workstatio
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var WorkstationId: TextView
-        var Status: TextView
-        var BookedBy: TextView
+        var tag: TextView
+        var state: TextView
+       // var BookedBy: TextView
 
 
         init {
-            WorkstationId = itemView.findViewById(R.id.workstationid_txt)
-            Status = itemView.findViewById(R.id.status_txt)
-            BookedBy = itemView.findViewById(R.id.bookedby_txt)
+            tag = itemView.findViewById(R.id.workstationid_txt)
+            state = itemView.findViewById(R.id.status_txt)
+        //    BookedBy = itemView.findViewById(R.id.bookedby_txt)
 
         }
     }

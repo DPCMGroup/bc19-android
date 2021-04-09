@@ -1,6 +1,7 @@
 package com.example.tagnfckotlin
 
 import okhttp3.*
+import org.json.JSONObject
 import java.io.IOException
 import kotlin.jvm.Throws
 
@@ -31,6 +32,17 @@ class HttpClient(val url: String){
                 .url(url + "insert")
                 .post(body)
                 .build()
+
+        sendRequest(request, then)
+    }
+
+    fun login(json: JSONObject, then : (String) -> Unit){
+        val JSON = MediaType.parse("application/json; charset=utf-8")
+        val body: RequestBody = RequestBody.create(JSON, json.toString())
+        val request = Request.Builder()
+            .url(url + "login")
+            .post(body)
+            .build()
 
         sendRequest(request, then)
     }

@@ -52,10 +52,10 @@ class MainActivity : AppCompatActivity() {
     var workstationList: MutableList<WorkstationModelClass>? = null
     var recyclerView: RecyclerView? = null
 
-    //val url = "http://192.168.210.35:8000/workstation/"
+    val url_json = "http://192.168.177.15:8000/workstation/"
 
     //ho utilizzato questo url per semplicità di test
-    val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
+   // val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
 
 
     private val client = HttpClient(url_json)
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         override fun onPostExecute(s: String) {
             try {
                 val jsonObject = JSONObject(s)
-                val jsonArray = jsonObject.getJSONArray("workstations")
+                val jsonArray = jsonObject.getJSONArray(null)
 
                 val tagId= findViewById<TextView>(R.id.tagId_txt)
                 val igienizza = findViewById<Button>(R.id.igienizza)
@@ -146,22 +146,22 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until jsonArray.length()) {
                     val jsonObject1 = jsonArray.getJSONObject(i)
                     val model = WorkstationModelClass()
-                    model.WorkstationId = jsonObject1.getString("WorkstationId")
-                    model.Status = jsonObject1.getString("Status")
-                    model.BookedBy = jsonObject1.getString("BookedBy")
+                    model.tag = jsonObject1.getString("tag")
+                    model.state = jsonObject1.getInt("state")
+                    //model.BookedBy = jsonObject1.getString("BookedBy")
 
                     //if(model.WorkstationId== "00 37 00 03 95 70 04")
                     //if(model.WorkstationId== "6")
-                    if(model.WorkstationId == tagId.text){
-                        if(model.Status == "libera e non igienizzata" || model.Status == "guasta e non igienizzata") {
+                    if(model.tag == tagId.text){
+                        if(model.state == 1 || model.state == 6) {
                             // Rende visibile bottone
                             igienizza.setVisibility(View.VISIBLE)
                         }
-                        if(model.Status == "non accessibile" || model.Status == "guasta e igienizzata") {
+                        if(model.state == 3 || model.state == 5) {
                             // Rende visibile text view (messaggio: postazione non accessibile)
                             message.setVisibility(View.VISIBLE)
                         }
-                        if(model.Status == "libera e igienizzata") {
+                        if(model.state == 0) {
                             // Rende visibile text view (messaggio: prenota postazione dopo un minuto)
                             message1.setVisibility(View.VISIBLE)
                         }
