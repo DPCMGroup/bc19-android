@@ -2,7 +2,6 @@ package com.example.tagnfckotlin.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Environment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -10,16 +9,12 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tagnfckotlin.HttpClient
 import com.example.tagnfckotlin.MainActivity
-import com.example.tagnfckotlin.PrenotaActivity
 import com.example.tagnfckotlin.R
 import org.json.JSONObject
-import java.io.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -130,7 +125,10 @@ class LoginActivity : AppCompatActivity() {
         if (s == "\"No user found\"") {
             //errore.setVisibility(View.VISIBLE)
             val errore = findViewById<TextView>(R.id.errore)
-            errore.visibility = View.VISIBLE
+            runOnUiThread {
+                errore.visibility = View.VISIBLE
+            }
+
 
         } else {
 
@@ -194,6 +192,8 @@ private fun updateUiWithUser(model: LoggedInUserView) {
     val user = username.text.toString()
 //val displayName = model.displayName
 // TODO : initiate successful logged in experience
+    //Toast.makeText(applicationContext, "benvenuto", Toast.LENGTH_SHORT).show()
+
 
 }
 

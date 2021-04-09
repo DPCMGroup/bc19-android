@@ -55,19 +55,21 @@
     <EditText
         android:id="@+id/stanzaTesto"
         android:layout_width="238dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
 
-        android:layout_marginTop="325dp" />
+        android:layout_marginTop="325dp"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/dipTesto"
         android:layout_width="238dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
 
         android:layout_centerHorizontal="true"
 
-        android:layout_marginTop="400dp" />
+        android:layout_marginTop="400dp"
+        android:singleLine="true" />
 
 
 
@@ -96,7 +98,9 @@
             android:layout_height="40dp"
 
             android:layout_marginStart="5dp"
-            android:layout_marginTop="98dp" />
+            android:layout_marginTop="98dp"
+            android:inputType="date"
+            android:singleLine="true" />
 
     <ImageButton
         android:id="@+id/SelezionaData"
@@ -135,7 +139,9 @@
             android:layout_height="40dp"
 
             android:layout_marginStart="5dp"
-            android:layout_marginTop="169dp" />
+            android:layout_marginTop="169dp"
+            android:inputType="time"
+            android:singleLine="true" />
     <ImageButton
         android:id="@+id/SelezionaInizio"
         android:layout_width="35dp"
@@ -170,7 +176,9 @@
             android:layout_width="104dp"
             android:layout_height="40dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="238dp" />
+            android:layout_marginTop="238dp"
+            android:inputType="time"
+            android:singleLine="true" />
 
 
         <ImageButton
