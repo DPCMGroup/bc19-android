@@ -113,10 +113,10 @@ class LoginActivity : AppCompatActivity() {
         login.setOnClickListener {
             loading.visibility = View.VISIBLE
             loginViewModel.login(username.text.toString(), password.text.toString())
-           val json : JSONObject = createJsonObjact()
-            client.login(json, ::println)
+            val json : JSONObject = createJsonObjact()
+            client.login(json, ::manageOutput)
 
-println(client.login(json, ::println).toString())
+/*println(client.login(json, ::println).toString())
         if(client.login(json, ::println).toString().equals("\"No user found\"")) {
             var moveIntent = Intent(
                 this, MainActivity::class.java
@@ -128,9 +128,23 @@ println(client.login(json, ::println).toString())
                     this, LoginActivity::class.java
                 )
                 startActivity(moveIntent)
-            }
+            }*/
         }
 }
+
+    fun manageOutput(s: String){
+        if(s=="No user found"){
+            var moveIntent = Intent(
+                    this, LoginActivity::class.java
+            )
+            startActivity(moveIntent)
+        }else{
+            var moveIntent = Intent(
+                    this, MainActivity::class.java
+            )
+            startActivity(moveIntent)
+        }
+    }
 
 private fun createJsonObjact(): JSONObject {
 
