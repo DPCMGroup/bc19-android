@@ -40,10 +40,14 @@ import java.util.ArrayList
 import kotlin.experimental.and
 
 
+
 class MainActivity : AppCompatActivity() {
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
+
+
+
 
     var workstationList: MutableList<WorkstationModelClass>? = null
     var recyclerView: RecyclerView? = null
@@ -51,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     //val url = "http://192.168.210.35:8000/workstation/"
 
     //ho utilizzato questo url per semplicità di test
-    val url_json="https://run.mocky.io/v3/c3b3bc71-d601-4c19-bd6d-fc98b45d3057"
+    val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
 
 
     private val client = HttpClient(url_json)
@@ -65,6 +69,11 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+
+
         text = findViewById<View>(R.id.text) as TextView
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
         if (nfcAdapter == null) {
@@ -82,6 +91,8 @@ class MainActivity : AppCompatActivity() {
         val getData = GetData()
         getData.execute()
     }
+
+
 
 
     inner class GetData : AsyncTask<String?, String?, String>() {

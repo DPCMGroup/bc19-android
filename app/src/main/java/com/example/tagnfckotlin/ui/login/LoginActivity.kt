@@ -1,12 +1,8 @@
 package com.example.tagnfckotlin.ui.login
 
-import android.app.Activity
 import android.content.Intent
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Environment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -15,9 +11,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.tagnfckotlin.MainActivity
-
 import com.example.tagnfckotlin.R
+import org.json.JSONObject
+import java.io.*
+import java.net.URL
+import java.net.URLConnection
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
+
 
 
         val username = findViewById<EditText>(R.id.username)
@@ -98,59 +103,104 @@ class LoginActivity : AppCompatActivity() {
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
+
             }
 
         }
         login.setOnClickListener {
             loading.visibility = View.VISIBLE
             loginViewModel.login(username.text.toString(), password.text.toString())
+            createJsonObjact()
 
-
-
-
-
-
-
-
-            var moveIntent = Intent(
-                this, MainActivity::class.java)
-            startActivity(moveIntent)
+            //  readjson()
+        //    if (readjson != "Not Found") {
+                var moveIntent = Intent(
+                    this, MainActivity::class.java
+                )
+                startActivity(moveIntent)
+            /*} else {
+                val _loginForm = MutableLiveData<LoginFormState>()
+                val loginFormState: LiveData<LoginFormState> = _loginForm
+                _loginForm.value = LoginFormState(usernameError = R.string.invalid_username)
+            }*/
         }
+
+}
+
+private fun createJsonObjact(): JSONObject {
+
+    val Settings = JSONObject()
+val username = findViewById<EditText>(R.id.username)
+val password = findViewById<EditText>(R.id.password)
+Settings.put("username", username.text)
+Settings.put("password", password.text)
+println(Settings)
+// Convert JsonObject to String Format
+// Convert JsonObject to String Format
+
+saveJson(Settings.toString())
+
+
+return Settings
+}
+
+private fun saveJson(jsonString: String) {
+val output: Writer
+val file = createFile()
+output = BufferedWriter(FileWriter(file))
+output.write(jsonString)
+output.close()
+}
+
+private fun createFile(): File {
+val fileName = "User"
+val storageDir = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+
+    if (storageDir != null) {
+        storageDir.mkdir()
     }
+return File.createTempFile(
+    fileName,
+    ".json",
+    storageDir
+)
+}
 
 
-    private fun updateUiWithUser(model: LoggedInUserView) {
 
-        val welcome = getString(R.string.welcome)
-        val username = findViewById<EditText>(R.id.username)
-        val user = username.text.toString()
-        val displayName = model.displayName
-        // TODO : initiate successful logged in experience
-        Toast.makeText(
-            applicationContext,
-            "$welcome $user!",
-            Toast.LENGTH_LONG
-        ).show()
-    }
 
-    private fun showLoginFailed(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
-    }
+private fun updateUiWithUser(model: LoggedInUserView) {
+
+val welcome = getString(R.string.welcome)
+val username = findViewById<EditText>(R.id.username)
+val user = username.text.toString()
+val displayName = model.displayName
+// TODO : initiate successful logged in experience
+Toast.makeText(
+    applicationContext,
+    "$welcome $user!",
+    Toast.LENGTH_LONG
+).show()
+}
+
+private fun showLoginFailed(@StringRes errorString: Int) {
+Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+}
 
 
 }
 
 /**
- * Extension function to simplify setting an afterTextChanged action to EditText components.
- */
+* Extension function to simplify setting an afterTextChanged action to EditText components.
+*/
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-    this.addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(editable: Editable?) {
-            afterTextChanged.invoke(editable.toString())
-        }
+this.addTextChangedListener(object : TextWatcher {
+    override fun afterTextChanged(editable: Editable?) {
+        afterTextChanged.invoke(editable.toString())
+    }
 
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
-    })
+    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+})
 }
