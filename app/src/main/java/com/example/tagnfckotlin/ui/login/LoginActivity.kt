@@ -115,7 +115,10 @@ class LoginActivity : AppCompatActivity() {
             loading.visibility = View.VISIBLE
             loginViewModel.login(username.text.toString(), password.text.toString())
             val json : JSONObject = createJsonObjact()
+
+            println("ciao")
             client.login(json, ::manageOutput)
+
 
 /*println(client.login(json, ::println).toString())
         if(client.login(json, ::println).toString().equals("\"No user found\"")) {
@@ -134,15 +137,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun manageOutput(s: String){
+        println("ciao2")
         if(s=="\"No user found\""){
-            var moveIntent =Intent(this, PrenotaActivity::class.java)
+            var moveIntent =Intent(this, LoginActivity::class.java)
             startActivity(moveIntent)
 
         }else{
-            var moveIntent = Intent(
-                    this, MainActivity::class.java
-            )
+            var moveIntent = Intent(this, MainActivity::class.java)
             startActivity(moveIntent)
+
         }
     }
 
@@ -162,7 +165,7 @@ println(Settings)
 
 return Settings
 }
-
+/*
 private fun saveJson(jsonString: String) {
 val output: Writer
 val file = createFile()
@@ -185,21 +188,20 @@ return File.createTempFile(
 )
 }
 
-
+*/
 
 
 private fun updateUiWithUser(model: LoggedInUserView) {
-
-val welcome = getString(R.string.welcome)
-val username = findViewById<EditText>(R.id.username)
-val user = username.text.toString()
-val displayName = model.displayName
+    val welcome = getString(R.string.welcome)
+    val username = findViewById<EditText>(R.id.username)
+    val user = username.text.toString()
+//val displayName = model.displayName
 // TODO : initiate successful logged in experience
-Toast.makeText(
-    applicationContext,
-    "$welcome $user!",
-    Toast.LENGTH_LONG
-).show()
+    Toast.makeText(
+        applicationContext,
+        "$welcome $user!",
+        Toast.LENGTH_LONG
+    ).show()
 }
 
 private fun showLoginFailed(@StringRes errorString: Int) {

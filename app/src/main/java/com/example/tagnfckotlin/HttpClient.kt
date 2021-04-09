@@ -37,6 +37,7 @@ class HttpClient(val url: String){
     }
 
     fun login(json: JSONObject, then : (String) -> Unit){
+        println("ciao3")
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
@@ -59,6 +60,7 @@ class HttpClient(val url: String){
 
     //General method to send a request and set the function (then) to be called when there is a response
     fun sendRequest(request : Request, then: (String) -> Unit){
+        println("ciao4")
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {println(e)}
             override fun onResponse(call: Call, response: Response) : Unit = then(response.body()!!.string())
