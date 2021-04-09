@@ -24,7 +24,7 @@ import java.io.*
 
 class LoginActivity : AppCompatActivity() {
 
-    val url_json = "http://192.168.177.15:8000/user/"
+    val url_json = "http://192.168.0.101:8000/user/"
 
     //ho utilizzato questo url per semplicità di test
     //val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
@@ -119,7 +119,7 @@ class LoginActivity : AppCompatActivity() {
             println("ciao")
             client.login(json,this::manageOutput)
 
-            errore.setVisibility(View.VISIBLE)
+
         }
 
     }
@@ -128,7 +128,9 @@ class LoginActivity : AppCompatActivity() {
     fun manageOutput(s: String){
         println("ciao2")
         if (s == "\"No user found\"") {
-
+            //errore.setVisibility(View.VISIBLE)
+            val errore = findViewById<TextView>(R.id.errore)
+            errore.visibility = View.VISIBLE
 
         } else {
 
@@ -192,11 +194,7 @@ private fun updateUiWithUser(model: LoggedInUserView) {
     val user = username.text.toString()
 //val displayName = model.displayName
 // TODO : initiate successful logged in experience
-    Toast.makeText(
-        applicationContext,
-        "$welcome $user!",
-        Toast.LENGTH_LONG
-    ).show()
+
 }
 
 private fun showLoginFailed(@StringRes errorString: Int) {
