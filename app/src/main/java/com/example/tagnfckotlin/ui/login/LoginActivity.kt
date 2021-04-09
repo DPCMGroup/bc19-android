@@ -10,6 +10,8 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tagnfckotlin.HttpClient
@@ -44,6 +46,8 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val login = findViewById<Button>(R.id.login)
         val loading = findViewById<ProgressBar>(R.id.loading)
+        val errore =  findViewById<TextView>(R.id.errore)
+        errore.setVisibility(View.INVISIBLE)
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
@@ -104,50 +108,41 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            login.setOnClickListener {
-                loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
 
-            }
 
         }
         login.setOnClickListener {
-            loading.visibility = View.VISIBLE
-            loginViewModel.login(username.text.toString(), password.text.toString())
+
+
             val json : JSONObject = createJsonObjact()
 
             println("ciao")
-            client.login(json, ::manageOutput)
+            client.login(json,this::manageOutput)
 
+            errore.setVisibility(View.VISIBLE)
+        }
 
-/*println(client.login(json, ::println).toString())
-        if(client.login(json, ::println).toString().equals("\"No user found\"")) {
-            var moveIntent = Intent(
-                this, MainActivity::class.java
-            )
-            startActivity(moveIntent)
-        }
-            else {
-                var moveIntent = Intent(
-                    this, LoginActivity::class.java
-                )
-                startActivity(moveIntent)
-            }*/
-        }
     }
+
 
     fun manageOutput(s: String){
         println("ciao2")
-        if(s=="\"No user found\""){
-            var moveIntent =Intent(this, LoginActivity::class.java)
-            startActivity(moveIntent)
+        if (s == "\"No user found\"") {
 
-        }else{
+
+        } else {
+
             var moveIntent = Intent(this, MainActivity::class.java)
             startActivity(moveIntent)
 
+
+
+
+
         }
     }
+
+
 
 private fun createJsonObjact(): JSONObject {
 

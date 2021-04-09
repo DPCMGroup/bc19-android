@@ -23,7 +23,7 @@ class PrenotaActivity : AppCompatActivity() {
         val cerca = findViewById<Button>(R.id.cerca)
         cerca.setOnClickListener {
             var moveIntent = Intent(
-                    this, ListaPostazioniActivity::class.java)
+                this, ListaPostazioniActivity::class.java)
             startActivity(moveIntent)
         }
         val SelezionaData = findViewById<ImageButton>(R.id.SelezionaData)
