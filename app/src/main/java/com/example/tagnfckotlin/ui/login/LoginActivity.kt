@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tagnfckotlin.HttpClient
 import com.example.tagnfckotlin.MainActivity
+import com.example.tagnfckotlin.PrenotaActivity
 import com.example.tagnfckotlin.R
 import org.json.JSONObject
 import java.io.*
@@ -130,14 +131,13 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(moveIntent)
             }*/
         }
-}
+    }
 
     fun manageOutput(s: String){
-        if(s=="No user found"){
-            var moveIntent = Intent(
-                    this, LoginActivity::class.java
-            )
+        if(s=="\"No user found\""){
+            var moveIntent =Intent(this, PrenotaActivity::class.java)
             startActivity(moveIntent)
+
         }else{
             var moveIntent = Intent(
                     this, MainActivity::class.java

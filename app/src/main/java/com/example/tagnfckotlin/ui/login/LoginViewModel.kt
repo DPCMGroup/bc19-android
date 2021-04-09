@@ -12,7 +12,7 @@ import com.example.tagnfckotlin.R
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
-    val client: HttpClient("")
+
 
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
@@ -22,19 +22,18 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
     fun login(username: String, password: String) {
         // can be launched in a separate asynchronous job
-        loginRepository.login(username, password)
-
-
-    }
-
-    fun receiveLogin(result: String){
+        val result = loginRepository.login(username, password)
         if (result is Result.Success) {
             _loginResult.value =
-                    LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
+                LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
         } else {
             _loginResult.value = LoginResult(error = R.string.login_failed)
         }
+
+
     }
+
+
 
     fun loginDataChanged(username: String, password: String) {
         if (!isUserNameValid(username)) {
