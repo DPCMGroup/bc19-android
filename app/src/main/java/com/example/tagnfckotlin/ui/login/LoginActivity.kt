@@ -2,6 +2,7 @@ package com.example.tagnfckotlin.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -14,7 +15,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tagnfckotlin.HttpClient
 import com.example.tagnfckotlin.MainActivity
 import com.example.tagnfckotlin.R
+import org.json.JSONArray
 import org.json.JSONObject
+import java.io.*
+import java.nio.file.Paths.get
 
 
 class LoginActivity : AppCompatActivity() {
@@ -114,8 +118,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    fun manageOutput(s: String){
+    fun manageOutput(s: String) {
         println("ciao2")
+        println(s)
+        //   saveJson(s)
+        System.out.println(s.javaClass.name)
+
+        val json = JSONObject(s)
+
+        // String instance holding the above json
+        val idutente = json.getInt("id")
+
+
+
+
+
         if (s == "\"No user found\"") {
             //errore.setVisibility(View.VISIBLE)
             val errore = findViewById<TextView>(R.id.errore)
@@ -129,6 +146,7 @@ class LoginActivity : AppCompatActivity() {
             println(username.text.toString())
             var intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.putExtra("username", username.text.toString())
+            intent.putExtra("id", idutente.toString())
             startActivity(intent)
 
 
@@ -137,10 +155,25 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
+/*
+    private fun read_json() {
+        var json: String? = null
+
+        try {
+            val inputStream: InputStream = assets.open("Prova.json")
+            json = inputStream.bufferedReader().use{it.readText()}
+            val jsonprova = findViewById<TextView>(R.id.jsonprova)
+            jsonprova.text =json+ "ciao"
+        }
+        catch(e: IOException){
+
+        }
 
 
+    }
 
-private fun createJsonObjact(): JSONObject {
+*/
+    private fun createJsonObjact(): JSONObject {
 
     val Settings = JSONObject()
 val username = findViewById<EditText>(R.id.username)
@@ -151,7 +184,7 @@ println(Settings)
 // Convert JsonObject to String Format
 // Convert JsonObject to String Format
 
-//saveJson(Settings.toString())
+// saveJson(Settings.toString())
 
 
 return Settings
@@ -166,20 +199,24 @@ output.close()
 }
 
 private fun createFile(): File {
-val fileName = "User"
-val storageDir = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+val fileName = "Loginutente"
+val storageDir =getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
 
     if (storageDir != null) {
         storageDir.mkdir()
     }
+
 return File.createTempFile(
     fileName,
     ".json",
-    storageDir
-)
-}
+    this.createFile()
 
+)
+
+
+}
 */
+
 
 
 private fun updateUiWithUser(model: LoggedInUserView) {
@@ -199,6 +236,8 @@ Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
 
 
 }
+
+
 
 /**
 * Extension function to simplify setting an afterTextChanged action to EditText components.

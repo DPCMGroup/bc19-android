@@ -220,8 +220,10 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.nav_prenota -> {
                 val username = intent.getStringExtra("username")
+                val idutente = intent.getStringExtra("id")
                 var moveIntent =Intent(this, PrenotaActivity::class.java)
                 moveIntent.putExtra("username", username.toString())
+                moveIntent.putExtra("id", idutente.toString())
                 startActivity(moveIntent)
                 return true
             }
@@ -232,8 +234,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_vis -> {
                 val json : JSONObject = createJsonObjact()
-                client.login(json,this::manageOutput)
+                client.visprenotazioni(json,this::manageOutput)
+                val idutente = intent.getStringExtra("id")
                 var moveIntent =Intent(this, VisualizzaActivity::class.java)
+                moveIntent.putExtra("id", idutente.toString())
                 startActivity(moveIntent)
                 return true
             }
@@ -250,9 +254,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun createJsonObjact(): JSONObject {
         val Settings = JSONObject()
-        val username = intent.getStringExtra("username")
-        Settings.put("username", username)
-        println("json")
+        val idutente = intent.getStringExtra("id")
+        Settings.put("id", idutente)
         println(Settings)
 // Convert JsonObject to String Format
 // Convert JsonObject to String Format
@@ -264,7 +267,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun manageOutput(s: String){
-       println("ciao")
+
         if (s == "\"No user found\"") {
             var moveIntent =Intent(this, VisualizzaActivity::class.java)
             startActivity(moveIntent)

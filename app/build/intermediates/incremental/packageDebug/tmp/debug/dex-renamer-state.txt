@@ -1,4 +1,4 @@
-#Sat Apr 10 11:25:18 CEST 2021
+#Sat Apr 10 17:54:45 CEST 2021
 path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
