@@ -41,7 +41,7 @@ class HttpClient(val url: String){
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
-            .url(url + "login")
+            .url(url + "login" )
             .post(body)
             .build()
 
@@ -49,12 +49,12 @@ class HttpClient(val url: String){
 
     }
 
-    fun visprenotazioni(json: JSONObject, then : (String) -> Unit){
+    fun visprenotazioni(json: JSONObject, then : (String) -> Unit, idutente: String){
         println("visualizza")
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
-            .url(url + "user/bookings")
+            .url(url + "user/booking" + idutente)
             .post(body)
             .build()
 

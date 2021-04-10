@@ -233,9 +233,10 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.nav_vis -> {
-                val json : JSONObject = createJsonObjact()
-                client.visprenotazioni(json,this::manageOutput)
                 val idutente = intent.getStringExtra("id")
+                val json : JSONObject = createJsonObjact()
+                client.visprenotazioni(json,this::manageOutput, idutente)
+
                 var moveIntent =Intent(this, VisualizzaActivity::class.java)
                 moveIntent.putExtra("id", idutente.toString())
                 startActivity(moveIntent)
