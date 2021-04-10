@@ -17,6 +17,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,7 @@ import kotlin.experimental.and
 
 
 
+
 class MainActivity : AppCompatActivity() {
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
@@ -52,13 +54,14 @@ class MainActivity : AppCompatActivity() {
     var workstationList: MutableList<WorkstationModelClass>? = null
     var recyclerView: RecyclerView? = null
 
-    val url_json = "http://192.168.177.15:8000/workstation/"
+    val url_json = "http://192.168.177.15:8000/"
 
     //ho utilizzato questo url per semplicità di test
    // val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
 
 
     private val client = HttpClient(url_json)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -70,11 +73,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var intent= intent
+        val username = intent.getStringExtra("username")
+        println("main")
+            println(username)
 
 
 
 
-        text = findViewById<View>(R.id.text) as TextView
+
+       text = findViewById<View>(R.id.text) as TextView
+
+
+
+
+
+
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
         if (nfcAdapter == null) {
             Toast.makeText(this, "No NFC", Toast.LENGTH_SHORT).show()
@@ -205,7 +219,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_prenota -> {
+                val username = intent.getStringExtra("username")
                 var moveIntent =Intent(this, PrenotaActivity::class.java)
+                moveIntent.putExtra("username", username.toString())
                 startActivity(moveIntent)
                 return true
             }
@@ -215,6 +231,8 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.nav_vis -> {
+                val json : JSONObject = createJsonObjact()
+                client.login(json,this::manageOutput)
                 var moveIntent =Intent(this, VisualizzaActivity::class.java)
                 startActivity(moveIntent)
                 return true
@@ -230,6 +248,41 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun createJsonObjact(): JSONObject {
+        val Settings = JSONObject()
+        val username = intent.getStringExtra("username")
+        Settings.put("username", username)
+        println("json")
+        println(Settings)
+// Convert JsonObject to String Format
+// Convert JsonObject to String Format
+
+//saveJson(Settings.toString())
+
+
+        return Settings
+    }
+
+    fun manageOutput(s: String){
+       println("ciao")
+        if (s == "\"No user found\"") {
+            var moveIntent =Intent(this, VisualizzaActivity::class.java)
+            startActivity(moveIntent)
+            //creare textView con scritto "Nessuna prenotazione effetuata"
+            println("niente")
+            }
+
+
+        else {
+            var moveIntent =Intent(this, VisualizzaActivity::class.java)
+            startActivity(moveIntent)
+            //creare checkbox con "data - orainizio - orafine - postazione - stanza"
+                // creare il bottone disdici
+            println("ok")
+
+            }
+
+    }
 
 
     override fun onResume() {
@@ -248,6 +301,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
         setIntent(intent)
         resolveIntent(intent)
     }

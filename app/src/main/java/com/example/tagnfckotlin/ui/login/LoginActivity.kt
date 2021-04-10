@@ -19,7 +19,7 @@ import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
 
-    val url_json = "http://192.168.0.101:8000/user/"
+    val url_json = "http://192.168.177.15:8000/user/"
 
     //ho utilizzato questo url per semplicità di test
     //val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
@@ -107,14 +107,8 @@ class LoginActivity : AppCompatActivity() {
 
         }
         login.setOnClickListener {
-
-
             val json : JSONObject = createJsonObjact()
-
-            println("ciao")
             client.login(json,this::manageOutput)
-
-
         }
 
     }
@@ -131,9 +125,11 @@ class LoginActivity : AppCompatActivity() {
 
 
         } else {
-
-            var moveIntent = Intent(this, MainActivity::class.java)
-            startActivity(moveIntent)
+            val username = findViewById<EditText>(R.id.username)
+            println(username.text.toString())
+            var intent = Intent(this@LoginActivity, MainActivity::class.java)
+            intent.putExtra("username", username.text.toString())
+            startActivity(intent)
 
 
 

@@ -10,7 +10,7 @@ class HttpClient(val url: String){
 
     fun getRequest(then : (String) -> Unit){
         val request = Request.Builder()
-                .url(url + "list")
+                .url(url + "workstation/list")
                 .build()
 
         sendRequest(request, then)
@@ -29,7 +29,7 @@ class HttpClient(val url: String){
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json)
         val request = Request.Builder()
-                .url(url + "insert")
+                .url(url + "workstation/insert")
                 .post(body)
                 .build()
 
@@ -42,6 +42,32 @@ class HttpClient(val url: String){
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
             .url(url + "login")
+            .post(body)
+            .build()
+
+        return sendRequest(request, then)
+
+    }
+
+    fun visprenotazioni(json: JSONObject, then : (String) -> Unit){
+        println("visualizza")
+        val JSON = MediaType.parse("application/json; charset=utf-8")
+        val body: RequestBody = RequestBody.create(JSON, json.toString())
+        val request = Request.Builder()
+            .url(url + "user/bookings")
+            .post(body)
+            .build()
+
+        return sendRequest(request, then)
+
+    }
+
+    fun cerca(json: JSONObject, then : (String) -> Unit){
+        println("visualizza posti")
+        val JSON = MediaType.parse("application/json; charset=utf-8")
+        val body: RequestBody = RequestBody.create(JSON, json.toString())
+        val request = Request.Builder()
+            .url(url + "user/workstation")
             .post(body)
             .build()
 
