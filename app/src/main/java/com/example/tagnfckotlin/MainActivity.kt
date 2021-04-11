@@ -228,9 +228,7 @@ class MainActivity : AppCompatActivity() {
                 val idutente = intent.getStringExtra("id")
                 val json : JSONObject = createJsonObjact()
                 client.visprenotazioni(json, this::manageOutputvis, idutente)
-                var moveIntent =Intent(this, VisualizzaActivity::class.java)
-                moveIntent.putExtra("id", idutente.toString())
-                startActivity(moveIntent)
+
                 return true
             }
             R.id.logout -> {
@@ -252,13 +250,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun manageOutputvis(s: String){
-
+    println(s)
+        val idutente = intent.getStringExtra("id")
         val conversione = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
         val s2= "{ \"visualizzaPrenotazioni\" : "+ conversione +"}"
 
         if (s == "\"[]\"") {""
-            var moveIntent =Intent(this, VisualizzaActivity::class.java)
-            startActivity(moveIntent)
+
             //creare textView con scritto "Nessuna prenotazione effetuata"
 
             }
@@ -271,9 +269,6 @@ class MainActivity : AppCompatActivity() {
                 val userList = ArrayList<HashMap<String, String?>>()
                 val jsonarray = oggettojson.getJSONArray("visualizzaPrenotazioni")
                 for (i in 0 until jsonarray.length()) {
-                    val jsonobject = jsonarray.getJSONObject(i)
-                    val bookId = jsonobject.getString("bookId")
-                    val workId = jsonobject.getString("workId")
                     val user = HashMap<String, String?>()
                     val obj = jsonarray.getJSONObject(i)
                     user["bookId"] = obj.getString("bookId")
@@ -293,19 +288,18 @@ class MainActivity : AppCompatActivity() {
                         R.id.end
                     )
                 )
-                lv.adapter = adapter
+                    println(lv)
+                    println("qui")
+                    lv.adapter = adapter
+                    println(lv.adapter)
+                    println("dopo")
             } catch (ex: JSONException) {
                 Log.e("JsonParser Example", "unexpected JSON exception", ex)
             }
 
-
-
-
-
-
-
-
-
+            var moveIntent =Intent(this, VisualizzaActivity::class.java)
+            moveIntent.putExtra("id", idutente.toString())
+            startActivity(moveIntent)
 
             //creare checkbox con "data - orainizio - orafine - postazione - stanza"
                 // creare il bottone disdici
