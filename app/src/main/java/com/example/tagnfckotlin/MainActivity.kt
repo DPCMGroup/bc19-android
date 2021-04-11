@@ -282,14 +282,15 @@ class MainActivity : AppCompatActivity() {
 
 
                     var intent =Intent(this, VisualizzaActivity::class.java)
-                    intent.putExtra("bookId"+ i, user["bookId"])
-                    intent.putExtra("workName"+ i, user["workName"])
-                    intent.putExtra("roomName"+ i, user["roomName"])
-                    intent.putExtra("start"+ i, user["start"])
-                    intent.putExtra("end"+ i, user["end"])
+                    val s= intent.putExtra("bookId"+ i, user["bookId"])
+                    val d = intent.putExtra("workName"+ i, user["workName"])
+                    val f = intent.putExtra("roomName"+ i, user["roomName"])
+                    val e= intent.putExtra("start"+ i, user["start"])
+                    val c= intent.putExtra("end"+ i, user["end"])
                     intent.putExtra("num", i.toString())
                     println(i)
-
+                     val finale :String = s.toString()+d.toString()+f.toString()+e.toString()+c.toString()
+                    println(finale)
                     if (i==jsonarray.length()-1) {
 
                         startActivity(intent)

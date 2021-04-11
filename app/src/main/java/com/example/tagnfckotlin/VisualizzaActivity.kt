@@ -28,6 +28,8 @@ class VisualizzaActivity : AppCompatActivity() {
             println(bookId)
             println(workName)
 
+
+
         }
 
     }
