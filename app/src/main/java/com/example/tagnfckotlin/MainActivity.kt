@@ -265,7 +265,7 @@ class MainActivity : AppCompatActivity() {
 
         else {
             try {
-                val lv = findViewById<ListView>(R.id.view_bookings)
+
                 val oggettojson=JSONObject(s2)
                 val userList = ArrayList<HashMap<String, String?>>()
                 val jsonarray = oggettojson.getJSONArray("visualizzaPrenotazioni")
@@ -278,29 +278,33 @@ class MainActivity : AppCompatActivity() {
                     user["start"] = obj.getString("start")
                     user["end"] = obj.getString("end")
                     userList.add(user)
+
+
+
+                    var intent =Intent(this, VisualizzaActivity::class.java)
+                    intent.putExtra("bookId"+ i, user["bookId"])
+                    intent.putExtra("workName"+ i, user["workName"])
+                    intent.putExtra("roomName"+ i, user["roomName"])
+                    intent.putExtra("start"+ i, user["start"])
+                    intent.putExtra("end"+ i, user["end"])
+                    intent.putExtra("num", i.toString())
+                    println(i)
+
+                    if (i==jsonarray.length()-1) {
+
+                        startActivity(intent)
+                    }
                 }
-                val adapter: ListAdapter = SimpleAdapter(
-                    this, userList, R.layout.list_bookings,
-                    arrayOf("bookId", "workName", "roomName", "start", "end"), intArrayOf(
-                        R.id.bookId,
-                        R.id.workName,
-                        R.id.roomName,
-                        R.id.start,
-                        R.id.end
-                    )
-                )
-                    println(lv)
-                    println("qui")
-                    lv.adapter = adapter
-                    println(lv.adapter)
-                    println("dopo")
+
+
+
             } catch (ex: JSONException) {
                 Log.e("JsonParser Example", "unexpected JSON exception", ex)
             }
 
-            var moveIntent =Intent(this, VisualizzaActivity::class.java)
-            moveIntent.putExtra("id", idutente.toString())
-            startActivity(moveIntent)
+
+
+
 
             //creare checkbox con "data - orainizio - orafine - postazione - stanza"
                 // creare il bottone disdici
