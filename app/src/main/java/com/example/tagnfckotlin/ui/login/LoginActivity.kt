@@ -119,11 +119,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     fun manageOutput(s: String) {
-        println("ciao2")
-        println(s)
         //   saveJson(s)
-
-
         if (s == "\"No user found\"") {
             //errore.setVisibility(View.VISIBLE)
 
@@ -141,7 +137,7 @@ class LoginActivity : AppCompatActivity() {
             // String instance holding the above json
             val idutente = json.getInt("id")
             val username = findViewById<EditText>(R.id.username)
-            println(username.text.toString())
+
             var intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.putExtra("username", username.text.toString())
             intent.putExtra("id", idutente.toString())
@@ -174,7 +170,7 @@ val username = findViewById<EditText>(R.id.username)
 val password = findViewById<EditText>(R.id.password)
 Settings.put("username", username.text)
 Settings.put("password", password.text)
-println(Settings)
+
 // Convert JsonObject to String Format
 // Convert JsonObject to String Format
 

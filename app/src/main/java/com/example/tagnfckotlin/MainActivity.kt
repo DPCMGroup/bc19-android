@@ -13,6 +13,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Parcelable
 import android.provider.Settings
+import android.text.TextUtils.replace
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -275,35 +276,24 @@ class MainActivity : AppCompatActivity() {
 
     fun manageOutputvis(s: String){
 
-        println("tra")
+        val conversione = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
+        val s2= "{ \"visualizzaPrenotazioni\" : "+ conversione +"}"
 
-        val s= "{ \\\"visualizzaPrenotazioni\\\" : " + s +"}"
-        println("qua")
         if (s == "\"[]\"") {""
             var moveIntent =Intent(this, VisualizzaActivity::class.java)
             startActivity(moveIntent)
             //creare textView con scritto "Nessuna prenotazione effetuata"
-            println("niente")
+
             }
 
 
         else {
             try {
-                println("start")
-               // val s2= JSONObject(s)
-             //   println("s2")
-               // println(s2)
-
-                val s3 ="{  \"visualizzaPrenotazioni\" : [{\"bookId\": 1, \"workId\": 1, \"workName\": \"lab1-1x1\", \"roomId\": 1, \"roomName\": \"lab1\", \"start\": \"01/05/2021, 10:00\", \"end\": \"01/05/2021, 13:00\"}, {\"bookId\": 3, \"workId\": 4, \"workName\": \"lab1-1x4\", \"roomId\": 1, \"roomName\": \"lab1\", \"start\": \"01/05/2021, 10:00\", \"end\": \"01/05/2021, 13:00\"}] }"
-
-                println(s3)
-                val s4=JSONObject(s3)
-
-                println(s4)
+                val oggettojson=JSONObject(s2)
                 val userList = ArrayList<HashMap<String, String?>>()
 
 
-                val jsonarray = s4.getJSONArray("visualizzaPrenotazioni")
+                val jsonarray = oggettojson.getJSONArray("visualizzaPrenotazioni")
 
                 for (i in 0 until jsonarray.length()) {
 
@@ -315,11 +305,18 @@ class MainActivity : AppCompatActivity() {
                     val obj = jsonarray.getJSONObject(i)
 
                     user["bookId"] = obj.getString("bookId")
-                    println(user["bookId"])
-                    user["workId"] = obj.getString("workId")
+
+                    user["workName"] = obj.getString("workName")
+
+                    user["roomName"] = obj.getString("roomName")
+
+                    user["start"] = obj.getString("start")
+
+                    user["end"] = obj.getString("end")
+
                     userList.add(user)
-                    println(user["workId"])
-                    println(obj)
+
+
 
                 }
                 } catch (ex: JSONException) {
