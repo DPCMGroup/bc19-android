@@ -63,22 +63,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val idutente = intent.getStringExtra("id")
+        println(idutente)
+        val igienizza = findViewById<Button>(R.id.igienizza)
+        val message = findViewById<TextView>(R.id.message_txt)
+        val message1 = findViewById<TextView>(R.id.message1_txt)
+        val stato = findViewById<TextView>(R.id.stato)
+        val tagId= findViewById<TextView>(R.id.tagId_txt)
 
 
-        var intent= intent
-        val username = intent.getStringExtra("username")
-        println("main")
-            println(username)
-
-
-
-
+        igienizza.setOnClickListener {
+            val json : JSONObject = createJsonObjactIgienizza(tagId, idutente)
+            client.visIgienizza(json, this::manageOutputIgienizza)
+            stato.text = "Libera e Igienizzata"
+            igienizza.setVisibility(View.INVISIBLE)
+            message.setVisibility(View.INVISIBLE)
+            message1.setVisibility(View.VISIBLE)
+        }
 
        text = findViewById<View>(R.id.text) as TextView
-
-
-
-
 
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
@@ -208,18 +211,17 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+     override  fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_prenota -> {
-                val username = intent.getStringExtra("username")
                 val idutente = intent.getStringExtra("id")
                 var moveIntent =Intent(this, PrenotaActivity::class.java)
-                moveIntent.putExtra("username", username.toString())
                 moveIntent.putExtra("id", idutente.toString())
                 startActivity(moveIntent)
                 return true
             }
             R.id.nav_guida -> {
+                val idutente = intent.getStringExtra("id")
                 var moveIntent =Intent(this, GuidaActivity::class.java)
                 startActivity(moveIntent)
                 return true
@@ -228,7 +230,6 @@ class MainActivity : AppCompatActivity() {
                 val idutente = intent.getStringExtra("id")
                 val json : JSONObject = createJsonObjact()
                 client.visprenotazioni(json, this::manageOutputvis, idutente)
-
                 return true
             }
             R.id.logout -> {
@@ -242,6 +243,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun createJsonObjact(): JSONObject {
         val Settings = JSONObject()
         val idutente = intent.getStringExtra("id")
@@ -252,15 +255,13 @@ class MainActivity : AppCompatActivity() {
     fun manageOutputvis(s: String){
     println(s)
         val idutente = intent.getStringExtra("id")
+        println(idutente)
         val conversione = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
         val s2= "{ \"visualizzaPrenotazioni\" : "+ conversione +"}"
 
         if (s == "\"[]\"") {""
-
             //creare textView con scritto "Nessuna prenotazione effetuata"
-
             }
-
 
         else {
             try {
@@ -306,11 +307,6 @@ class MainActivity : AppCompatActivity() {
             }
 
     }
-
-
-
-
-
 
 
 
@@ -481,7 +477,7 @@ class MainActivity : AppCompatActivity() {
         val tagId= findViewById<TextView>(R.id.tagId_txt)
         tagId.text= toHex(id)
         Settings.put("tag", tagId.text)
-        println(Settings)
+
         return Settings
     }
 
@@ -492,6 +488,7 @@ class MainActivity : AppCompatActivity() {
         val json = JSONObject(conversioneobj)
 
           // String instance holding the above json
+            val id =json.getInt ("workId")
             val nomepostazionejson = json.getString("workName")
             val statojson = json.getInt("workStatus")
             val evprenotjson = json.getInt("bookedToday")
@@ -502,7 +499,9 @@ class MainActivity : AppCompatActivity() {
             igienizza.setVisibility(View.INVISIBLE)
             message.setVisibility(View.INVISIBLE)
             message1.setVisibility(View.INVISIBLE)
-
+        runOnUiThread {
+            igienizza.isEnabled = false
+        }
             val nomepostazione = findViewById<TextView>(R.id.nomepostazione)
             val stato = findViewById<TextView>(R.id.stato)
             val evprenotazioni = findViewById<TextView>(R.id.evprenotazioni)
@@ -517,6 +516,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+
             if (statojson == 0) {
                 runOnUiThread {
                     stato.text = "Libera e Igienizzata"
@@ -526,6 +526,9 @@ class MainActivity : AppCompatActivity() {
                 }
             } else if (statojson == 1) {
                 runOnUiThread {
+                    igienizza.isEnabled = true
+                }
+                runOnUiThread {
                     stato.text = "Libera e non Igienizzata"
                 }
                 runOnUiThread {
@@ -534,7 +537,7 @@ class MainActivity : AppCompatActivity() {
             } else if (statojson == 2) {
 
                 runOnUiThread {
-                stato.text = " Occupata"}
+                stato.text = "Occupata"}
                 runOnUiThread {
                 message.setVisibility(View.VISIBLE)}
             } else if (statojson == 3) {
@@ -556,14 +559,24 @@ class MainActivity : AppCompatActivity() {
             stato.setVisibility(View.VISIBLE)
             evprenotazioni.setVisibility(View.VISIBLE)
 
-            igienizza.setOnClickListener {
-                runOnUiThread {stato.text = "Libera e Igienizzata"}
-                igienizza.setVisibility(View.INVISIBLE)
-                message.setVisibility(View.INVISIBLE)
-                message1.setVisibility(View.VISIBLE)
-            }
 
 
+
+    }
+
+    private fun createJsonObjactIgienizza(tagid: TextView, idutente: String?): JSONObject {
+        val Settings = JSONObject()
+        Settings.put("id", idutente)
+     println(idutente)
+
+        Settings.put("idtag", tagid.text)
+
+        println(Settings)
+        return Settings
+    }
+
+    fun manageOutputIgienizza(s: String) {
+        //risposta cambio stato
     }
 
     private fun toHex(bytes: ByteArray): String {

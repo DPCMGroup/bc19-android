@@ -65,12 +65,27 @@ class HttpClient(val url: String){
 
 
 
+
+
     fun cerca(json: JSONObject, then : (String) -> Unit){
 
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
             .url(url + "user/workstation")
+            .post(body)
+            .build()
+
+        return sendRequest(request, then)
+
+    }
+
+    fun visIgienizza(json: JSONObject, then : (String) -> Unit){
+
+        val JSON = MediaType.parse("application/json; charset=utf-8")
+        val body: RequestBody = RequestBody.create(JSON, json.toString())
+        val request = Request.Builder()
+            .url(url + "user/sanitation")
             .post(body)
             .build()
 
