@@ -285,7 +285,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 val adapter: ListAdapter = SimpleAdapter(
                     this, userList, R.layout.list_bookings,
-                    arrayOf("name", "designation", "location"), intArrayOf(
+                    arrayOf("bookId", "workName", "roomName", "start", "end"), intArrayOf(
                         R.id.bookId,
                         R.id.workName,
                         R.id.roomName,
@@ -493,74 +493,82 @@ class MainActivity : AppCompatActivity() {
 
     fun manageOutputscansione(s: String) {
         println(s)
-        val conversioneobj = s.replace("\\","")
+
+            val conversioneobj = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
         val json = JSONObject(conversioneobj)
 
-        // String instance holding the above json
-        val nomepostazionejson = json.getString("workName")
-        val statojson = json.getInt("workStatus")
-        val evprenotjson = json.getInt("bookedToday")
+          // String instance holding the above json
+            val nomepostazionejson = json.getString("workName")
+            val statojson = json.getInt("workStatus")
+            val evprenotjson = json.getInt("bookedToday")
 
-        val igienizza = findViewById<Button>(R.id.igienizza)
-        val message =  findViewById<TextView>(R.id.message_txt)
-        val message1 =  findViewById<TextView>(R.id.message1_txt)
-        igienizza.setVisibility(View.INVISIBLE)
-        message.setVisibility(View.INVISIBLE)
-        message1.setVisibility(View.INVISIBLE)
-
-        val nomepostazione = findViewById<TextView>(R.id.nomepostazione)
-        val stato =  findViewById<TextView>(R.id.stato)
-        val evprenotazioni =  findViewById<TextView>(R.id.evprenotazioni)
-
-        nomepostazione.text=nomepostazionejson
-        val username = intent.getStringExtra("username")
-
-        if(evprenotjson==0 ){
-            evprenotazioni.text= "Non ci sono prenotazioni"
-        }else{
-
-        }
-
-        if(statojson==0){
-
-            stato.text = "Libera e Igienizzata"
-            message1.setVisibility(View.VISIBLE)
-        }else if(statojson==1){
-            stato.text = "Libera e non Igienizzata"
-            igienizza.setVisibility(View.VISIBLE)
-        }else if(statojson==2){
-            val idutente = intent.getStringExtra("id")
-
-            stato.text =" Occupata"
-            message.setVisibility(View.VISIBLE)
-        }
-        else if(statojson==3){
-            stato.text =""
-            message.setVisibility(View.VISIBLE)
-        }
-        else if(statojson==4){
-            stato.text = ""
-            message.setVisibility(View.VISIBLE)
-        }
-        else if(statojson==5){
-            stato.text = ""
-            message.setVisibility(View.VISIBLE)
-        }else if(statojson==6){
-            stato.text = ""
-            message.setVisibility(View.VISIBLE)
-        }
-
-
-        nomepostazione.setVisibility(View.VISIBLE)
-        stato.setVisibility(View.VISIBLE)
-        evprenotazioni.setVisibility(View.VISIBLE)
-
-        igienizza.setOnClickListener {
-            stato.text = "Libera e Igienizzata"
+            val igienizza = findViewById<Button>(R.id.igienizza)
+            val message = findViewById<TextView>(R.id.message_txt)
+            val message1 = findViewById<TextView>(R.id.message1_txt)
             igienizza.setVisibility(View.INVISIBLE)
             message.setVisibility(View.INVISIBLE)
-            message1.setVisibility(View.VISIBLE)
+            message1.setVisibility(View.INVISIBLE)
+
+            val nomepostazione = findViewById<TextView>(R.id.nomepostazione)
+            val stato = findViewById<TextView>(R.id.stato)
+            val evprenotazioni = findViewById<TextView>(R.id.evprenotazioni)
+        runOnUiThread {
+            nomepostazione.text = nomepostazionejson
         }
+
+
+            if (evprenotjson == 0) {
+                runOnUiThread {
+                    evprenotazioni.text = "Non ci sono prenotazioni"
+                }
+            }
+
+            if (statojson == 0) {
+                runOnUiThread {
+                    stato.text = "Libera e Igienizzata"
+                }
+                runOnUiThread {
+                    message1.setVisibility(View.VISIBLE)
+                }
+            } else if (statojson == 1) {
+                runOnUiThread {
+                    stato.text = "Libera e non Igienizzata"
+                }
+                runOnUiThread {
+                    igienizza.setVisibility(View.VISIBLE)
+                }
+            } else if (statojson == 2) {
+
+                runOnUiThread {
+                stato.text = " Occupata"}
+                runOnUiThread {
+                message.setVisibility(View.VISIBLE)}
+            } else if (statojson == 3) {
+                runOnUiThread {stato.text = "Prenotata e Igienizzata"}
+                runOnUiThread {message.setVisibility(View.VISIBLE)}
+            } else if (statojson == 4) {
+                runOnUiThread {stato.text = "Prenotata e Non Igienizzata"}
+                runOnUiThread {message.setVisibility(View.VISIBLE)}
+            } else if (statojson == 5) {
+                runOnUiThread {stato.text = "Guasta e Igienizzata"}
+                runOnUiThread {message.setVisibility(View.VISIBLE)}
+            } else if (statojson == 6) {
+                runOnUiThread {stato.text = "Guasta e non Igienizzata"}
+                runOnUiThread {message.setVisibility(View.VISIBLE)}
+            }
+
+
+            nomepostazione.setVisibility(View.VISIBLE)
+            stato.setVisibility(View.VISIBLE)
+            evprenotazioni.setVisibility(View.VISIBLE)
+
+            igienizza.setOnClickListener {
+                runOnUiThread {stato.text = "Libera e Igienizzata"}
+                igienizza.setVisibility(View.INVISIBLE)
+                message.setVisibility(View.INVISIBLE)
+                message1.setVisibility(View.VISIBLE)
+            }
+
 
     }
 

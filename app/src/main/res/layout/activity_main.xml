@@ -60,34 +60,37 @@
          />
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
-    <TextView
-        android:id="@+id/nomepostazione"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center_horizontal"
-        android:text=""
-        android:textAlignment="center"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        tools:visibility="invisible"
-         />
+        android:orientation="horizontal"
+        android:textAlignment="center">
+
+        <TextView
+            android:id="@+id/nomepostazione"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="20sp"
+
+            android:visibility="invisible"
+            tools:visibility="invisible" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
+        android:textAlignment="center">
+
         <TextView
             android:id="@+id/stato"
             android:layout_width="wrap_content"
@@ -95,23 +98,24 @@
             android:layout_below="@id/logo"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="290dp"
+            android:layout_marginTop="280dp"
             android:layout_marginRight="20dp"
             android:gravity="center_horizontal"
             android:text=""
             android:textAlignment="center"
-            android:textSize="28sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
+
             android:visibility="invisible"
-            tools:visibility="invisible"
-             />
+            tools:visibility="invisible" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
+        android:textAlignment="center">
+
         <TextView
             android:id="@+id/evprenotazioni"
             android:layout_width="wrap_content"
@@ -119,16 +123,15 @@
             android:layout_below="@id/logo"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="320dp"
             android:layout_marginRight="20dp"
             android:gravity="center_horizontal"
             android:text=""
             android:textAlignment="center"
-            android:textSize="28sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
+
             android:visibility="invisible"
-            tools:visibility="invisible"
-             />
+            tools:visibility="invisible" />
     </LinearLayout>
 
 
@@ -154,7 +157,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="21dp"
         android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="251dp"
+        android:layout_marginBottom="180dp"
         android:text="Si prega di allontanarsi, postazione al momento non disponibile"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -170,9 +173,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="-7dp"
-        android:layout_marginBottom="247dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="180dp"
         android:text="Lasciare il telefono sul tag per un minuto per prenotare"
         android:textSize="18sp"
         android:textStyle="bold"
