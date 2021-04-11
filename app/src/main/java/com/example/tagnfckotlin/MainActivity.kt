@@ -7,44 +7,29 @@ import android.nfc.NdefMessage
 import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.nfc.Tag
-import android.nfc.tech.MifareClassic
-import android.nfc.tech.MifareUltralight
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Parcelable
 import android.provider.Settings
-import android.text.TextUtils.replace
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
 import com.example.tagnfckotlin.ui.login.LoginActivity
-import org.checkerframework.checker.units.qual.C
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.io.IOException
 import java.io.InputStreamReader
-import java.lang.reflect.Array.get
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
 import java.util.ArrayList
-import kotlin.experimental.and
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -242,7 +227,6 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_vis -> {
                 val idutente = intent.getStringExtra("id")
                 val json : JSONObject = createJsonObjact()
-                println(idutente)
                 client.visprenotazioni(json, this::manageOutputvis, idutente)
                 var moveIntent =Intent(this, VisualizzaActivity::class.java)
                 moveIntent.putExtra("id", idutente.toString())
@@ -264,13 +248,6 @@ class MainActivity : AppCompatActivity() {
         val Settings = JSONObject()
         val idutente = intent.getStringExtra("id")
         Settings.put("id", idutente)
-        println(Settings)
-// Convert JsonObject to String Format
-// Convert JsonObject to String Format
-
-//saveJson(Settings.toString())
-
-
         return Settings
     }
 
@@ -289,37 +266,35 @@ class MainActivity : AppCompatActivity() {
 
         else {
             try {
+                val lv = findViewById<ListView>(R.id.view_bookings)
                 val oggettojson=JSONObject(s2)
                 val userList = ArrayList<HashMap<String, String?>>()
-
-
                 val jsonarray = oggettojson.getJSONArray("visualizzaPrenotazioni")
-
                 for (i in 0 until jsonarray.length()) {
-
                     val jsonobject = jsonarray.getJSONObject(i)
                     val bookId = jsonobject.getString("bookId")
                     val workId = jsonobject.getString("workId")
-
                     val user = HashMap<String, String?>()
                     val obj = jsonarray.getJSONObject(i)
-
                     user["bookId"] = obj.getString("bookId")
-
                     user["workName"] = obj.getString("workName")
-
                     user["roomName"] = obj.getString("roomName")
-
                     user["start"] = obj.getString("start")
-
                     user["end"] = obj.getString("end")
-
                     userList.add(user)
-
-
-
                 }
-                } catch (ex: JSONException) {
+                val adapter: ListAdapter = SimpleAdapter(
+                    this, userList, R.layout.list_bookings,
+                    arrayOf("name", "designation", "location"), intArrayOf(
+                        R.id.bookId,
+                        R.id.workName,
+                        R.id.roomName,
+                        R.id.start,
+                        R.id.end
+                    )
+                )
+                lv.adapter = adapter
+            } catch (ex: JSONException) {
                 Log.e("JsonParser Example", "unexpected JSON exception", ex)
             }
 
@@ -368,6 +343,7 @@ class MainActivity : AppCompatActivity() {
 
     fun printString(s : String){
         println(s)
+
     }
 
     private fun resolveIntent(intent: Intent) {
@@ -430,10 +406,11 @@ class MainActivity : AppCompatActivity() {
         //salvo l'id su textView (tagId_txt, settato invisible)
         val tagId= findViewById<TextView>(R.id.tagId_txt)
         tagId.text= toHex(id)
-
+        val json : JSONObject = createJsonObjectscansione(id)
+        client.scansione(json, ::manageOutputscansione)
         //scorro la lista di workstations dopo aver effettuato la scansione del tag
-        val getData = GetData()
-        getData.execute()
+       // val getData = GetData()
+       // getData.execute()
 
 
 
@@ -503,6 +480,88 @@ class MainActivity : AppCompatActivity() {
 
  */
         return sb.toString()
+    }
+
+    private fun createJsonObjectscansione(id: ByteArray): JSONObject {
+        val Settings = JSONObject()
+        val tagId= findViewById<TextView>(R.id.tagId_txt)
+        tagId.text= toHex(id)
+        Settings.put("tag", tagId.text)
+        println(Settings)
+        return Settings
+    }
+
+    fun manageOutputscansione(s: String) {
+        println(s)
+        val conversioneobj = s.replace("\\","")
+        val json = JSONObject(conversioneobj)
+
+        // String instance holding the above json
+        val nomepostazionejson = json.getString("workName")
+        val statojson = json.getInt("workStatus")
+        val evprenotjson = json.getInt("bookedToday")
+
+        val igienizza = findViewById<Button>(R.id.igienizza)
+        val message =  findViewById<TextView>(R.id.message_txt)
+        val message1 =  findViewById<TextView>(R.id.message1_txt)
+        igienizza.setVisibility(View.INVISIBLE)
+        message.setVisibility(View.INVISIBLE)
+        message1.setVisibility(View.INVISIBLE)
+
+        val nomepostazione = findViewById<TextView>(R.id.nomepostazione)
+        val stato =  findViewById<TextView>(R.id.stato)
+        val evprenotazioni =  findViewById<TextView>(R.id.evprenotazioni)
+
+        nomepostazione.text=nomepostazionejson
+        val username = intent.getStringExtra("username")
+
+        if(evprenotjson==0 ){
+            evprenotazioni.text= "Non ci sono prenotazioni"
+        }else{
+
+        }
+
+        if(statojson==0){
+
+            stato.text = "Libera e Igienizzata"
+            message1.setVisibility(View.VISIBLE)
+        }else if(statojson==1){
+            stato.text = "Libera e non Igienizzata"
+            igienizza.setVisibility(View.VISIBLE)
+        }else if(statojson==2){
+            val idutente = intent.getStringExtra("id")
+
+            stato.text =" Occupata"
+            message.setVisibility(View.VISIBLE)
+        }
+        else if(statojson==3){
+            stato.text =""
+            message.setVisibility(View.VISIBLE)
+        }
+        else if(statojson==4){
+            stato.text = ""
+            message.setVisibility(View.VISIBLE)
+        }
+        else if(statojson==5){
+            stato.text = ""
+            message.setVisibility(View.VISIBLE)
+        }else if(statojson==6){
+            stato.text = ""
+            message.setVisibility(View.VISIBLE)
+        }
+
+
+        nomepostazione.setVisibility(View.VISIBLE)
+        stato.setVisibility(View.VISIBLE)
+        evprenotazioni.setVisibility(View.VISIBLE)
+
+        igienizza.setOnClickListener {
+            stato.text = "Libera e Igienizzata"
+            igienizza.setVisibility(View.INVISIBLE)
+            message.setVisibility(View.INVISIBLE)
+            message1.setVisibility(View.VISIBLE)
+        }
+
     }
 
     private fun toHex(bytes: ByteArray): String {

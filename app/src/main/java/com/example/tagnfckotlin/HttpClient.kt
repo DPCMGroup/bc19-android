@@ -78,6 +78,18 @@ class HttpClient(val url: String){
 
     }
 
+    fun scansione(json: JSONObject, then : (String) -> Unit){
+        val JSON = MediaType.parse("application/json; charset=utf-8")
+        val body: RequestBody = RequestBody.create(JSON, json.toString())
+        val request = Request.Builder()
+            .url(url + "workstation/getInfo")
+            .post(body)
+            .build()
+
+        return sendRequest(request, then)
+
+    }
+
 
     fun deleteRequest(id : Int, then : (String) -> Unit){
         val request = Request.Builder()
