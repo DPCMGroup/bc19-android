@@ -1,6 +1,7 @@
 package com.example.tagnfckotlin
 
 import okhttp3.*
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 import kotlin.jvm.Throws
@@ -41,7 +42,7 @@ class HttpClient(val url: String){
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
-            .url(url + "login" )
+            .url(url + "login")
             .post(body)
             .build()
 
@@ -51,16 +52,18 @@ class HttpClient(val url: String){
 
     fun visprenotazioni(json: JSONObject, then : (String) -> Unit, idutente: String){
         println("visualizza")
+        println(idutente)
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
-            .url(url + "user/booking" + idutente)
+            .url(url + "user/bookings/" + idutente)
             .post(body)
+            .get()
             .build()
-
         return sendRequest(request, then)
-
     }
+
+
 
     fun cerca(json: JSONObject, then : (String) -> Unit){
         println("visualizza posti")

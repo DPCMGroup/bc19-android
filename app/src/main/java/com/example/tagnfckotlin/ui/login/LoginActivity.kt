@@ -23,10 +23,10 @@ import java.nio.file.Paths.get
 
 class LoginActivity : AppCompatActivity() {
 
-    val url_json = "http://192.168.177.15:8000/user/"
+    val url_json = "http://192.168.210.35:8000/user/"
 
     //ho utilizzato questo url per semplicità di test
-    //val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
+    //val url_json="https://run.mocky.io/v3/f5d1fded-df4c-433f-8be6-b880014c13e3"
 
 
     private val client = HttpClient(url_json)
@@ -112,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
         }
         login.setOnClickListener {
             val json : JSONObject = createJsonObjact()
-            client.login(json,this::manageOutput)
+            client.login(json, ::manageOutput)
         }
 
     }
@@ -122,36 +122,30 @@ class LoginActivity : AppCompatActivity() {
         println("ciao2")
         println(s)
         //   saveJson(s)
-        System.out.println(s.javaClass.name)
-
-        val json = JSONObject(s)
-
-        // String instance holding the above json
-        val idutente = json.getInt("id")
-
-
-
 
 
         if (s == "\"No user found\"") {
             //errore.setVisibility(View.VISIBLE)
+
             val errore = findViewById<TextView>(R.id.errore)
+
             runOnUiThread {
+
                 errore.visibility = View.VISIBLE
             }
 
 
         } else {
+            val json = JSONObject(s)
+
+            // String instance holding the above json
+            val idutente = json.getInt("id")
             val username = findViewById<EditText>(R.id.username)
             println(username.text.toString())
             var intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.putExtra("username", username.text.toString())
             intent.putExtra("id", idutente.toString())
             startActivity(intent)
-
-
-
-
 
         }
     }

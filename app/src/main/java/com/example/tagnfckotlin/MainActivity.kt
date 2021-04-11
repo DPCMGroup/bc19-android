@@ -13,6 +13,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Parcelable
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -29,11 +30,13 @@ import com.example.tagnfckotlin.parser.NdefMessageParser
 import com.example.tagnfckotlin.record.ParsedNdefRecord
 import com.example.tagnfckotlin.ui.login.LoginActivity
 import org.checkerframework.checker.units.qual.C
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import org.w3c.dom.Text
 import java.io.IOException
 import java.io.InputStreamReader
+import java.lang.reflect.Array.get
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
@@ -44,6 +47,7 @@ import kotlin.experimental.and
 
 
 class MainActivity : AppCompatActivity() {
+
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
     private var text: TextView? = null
@@ -54,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     var workstationList: MutableList<WorkstationModelClass>? = null
     var recyclerView: RecyclerView? = null
 
-    val url_json = "http://192.168.177.15:8000/"
+    val url_json = "http://192.168.210.35:8000/"
 
     //ho utilizzato questo url per semplicità di test
    // val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"
@@ -72,6 +76,8 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         var intent= intent
         val username = intent.getStringExtra("username")
@@ -235,8 +241,8 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_vis -> {
                 val idutente = intent.getStringExtra("id")
                 val json : JSONObject = createJsonObjact()
-                client.visprenotazioni(json,this::manageOutput, idutente)
-
+                println(idutente)
+                client.visprenotazioni(json, this::manageOutputvis, idutente)
                 var moveIntent =Intent(this, VisualizzaActivity::class.java)
                 moveIntent.putExtra("id", idutente.toString())
                 startActivity(moveIntent)
@@ -267,9 +273,13 @@ class MainActivity : AppCompatActivity() {
         return Settings
     }
 
-    fun manageOutput(s: String){
+    fun manageOutputvis(s: String){
 
-        if (s == "\"No user found\"") {
+        println("tra")
+
+
+        println("qua")
+        if (s == "\"[]\"") {
             var moveIntent =Intent(this, VisualizzaActivity::class.java)
             startActivity(moveIntent)
             //creare textView con scritto "Nessuna prenotazione effetuata"
@@ -278,15 +288,56 @@ class MainActivity : AppCompatActivity() {
 
 
         else {
-            var moveIntent =Intent(this, VisualizzaActivity::class.java)
-            startActivity(moveIntent)
+            try {
+                println("start")
+                val s2= JSONArray(s)
+                val jsonstr= s2
+                val userList = ArrayList<HashMap<String, String?>>()
+                println("cjcjcckc")
+                val jsonarray = JSONArray(jsonstr)
+                println("cjcjcjcjc")
+                for (i in 0 until jsonarray.length()) {
+                    println("jjcdjkcxcx")
+                    val jsonobject = jsonarray.getJSONObject(i)
+                    val bookId = jsonobject.getString("bookId")
+                    val workId = jsonobject.getString("workId")
+
+                    val user = HashMap<String, String?>()
+                    val obj = jsonarray.getJSONObject(i)
+                    println("quiii")
+                    user["bookId"] = obj.getString("bookId")
+                    println(user["bookId"])
+                    user["workId"] = obj.getString("workId")
+                    userList.add(user)
+                    println("mezzzoooo")
+                    println(user["workidId"])
+                    println(obj)
+                    println("fineeee")
+                }
+                } catch (ex: JSONException) {
+                Log.e("JsonParser Example", "unexpected JSON exception", ex)
+            }
+
+
+
+
+
+
+
+
+
+
             //creare checkbox con "data - orainizio - orafine - postazione - stanza"
                 // creare il bottone disdici
-            println("ok")
-
             }
 
     }
+
+
+
+
+
+
 
 
     override fun onResume() {
