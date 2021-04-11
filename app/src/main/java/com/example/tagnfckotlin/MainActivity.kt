@@ -277,9 +277,9 @@ class MainActivity : AppCompatActivity() {
 
         println("tra")
 
-
+        val s= "{ \\\"visualizzaPrenotazioni\\\" : " + s +"}"
         println("qua")
-        if (s == "\"[]\"") {
+        if (s == "\"[]\"") {""
             var moveIntent =Intent(this, VisualizzaActivity::class.java)
             startActivity(moveIntent)
             //creare textView con scritto "Nessuna prenotazione effetuata"
@@ -290,29 +290,37 @@ class MainActivity : AppCompatActivity() {
         else {
             try {
                 println("start")
-                val s2= JSONArray(s)
-                val jsonstr= s2
+               // val s2= JSONObject(s)
+             //   println("s2")
+               // println(s2)
+
+                val s3 ="{  \"visualizzaPrenotazioni\" : [{\"bookId\": 1, \"workId\": 1, \"workName\": \"lab1-1x1\", \"roomId\": 1, \"roomName\": \"lab1\", \"start\": \"01/05/2021, 10:00\", \"end\": \"01/05/2021, 13:00\"}, {\"bookId\": 3, \"workId\": 4, \"workName\": \"lab1-1x4\", \"roomId\": 1, \"roomName\": \"lab1\", \"start\": \"01/05/2021, 10:00\", \"end\": \"01/05/2021, 13:00\"}] }"
+
+                println(s3)
+                val s4=JSONObject(s3)
+
+                println(s4)
                 val userList = ArrayList<HashMap<String, String?>>()
-                println("cjcjcckc")
-                val jsonarray = JSONArray(jsonstr)
-                println("cjcjcjcjc")
+
+
+                val jsonarray = s4.getJSONArray("visualizzaPrenotazioni")
+
                 for (i in 0 until jsonarray.length()) {
-                    println("jjcdjkcxcx")
+
                     val jsonobject = jsonarray.getJSONObject(i)
                     val bookId = jsonobject.getString("bookId")
                     val workId = jsonobject.getString("workId")
 
                     val user = HashMap<String, String?>()
                     val obj = jsonarray.getJSONObject(i)
-                    println("quiii")
+
                     user["bookId"] = obj.getString("bookId")
                     println(user["bookId"])
                     user["workId"] = obj.getString("workId")
                     userList.add(user)
-                    println("mezzzoooo")
-                    println(user["workidId"])
+                    println(user["workId"])
                     println(obj)
-                    println("fineeee")
+
                 }
                 } catch (ex: JSONException) {
                 Log.e("JsonParser Example", "unexpected JSON exception", ex)
