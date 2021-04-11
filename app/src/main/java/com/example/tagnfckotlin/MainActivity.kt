@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
     var workstationList: MutableList<WorkstationModelClass>? = null
     var recyclerView: RecyclerView? = null
 
-    val url_json = "http://192.168.177.15:8000/"
+    val url_json = "http://192.168.210.35:8000/"
 
     //ho utilizzato questo url per semplicità di test
    // val url_json="https://run.mocky.io/v3/9c30b61f-fa6d-41bf-80f1-a6ffc5274f05"

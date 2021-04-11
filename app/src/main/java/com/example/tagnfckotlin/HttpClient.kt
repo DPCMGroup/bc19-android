@@ -54,7 +54,7 @@ class HttpClient(val url: String){
         val JSON = MediaType.parse("application/json; charset=utf-8")
         val body: RequestBody = RequestBody.create(JSON, json.toString())
         val request = Request.Builder()
-            .url(url + "user/booking" + idutente)
+            .url(url + "user/bookings/" + idutente)
             .post(body)
             .build()
 

@@ -6,75 +6,75 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
+8-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml
+9-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.NFC" />
-11-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:5:5-62
-11-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:5:22-59
+11-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:5:5-62
+11-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:5:22-59
 12
 13    <uses-feature android:name="android.hardware.nfc" />
-13-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:7:5-57
-13-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:7:19-54
+13-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:7:5-57
+13-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:7:19-54
 14
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:9:5-67
-15-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:9:22-64
+15-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:9:5-67
+15-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:9:22-64
 16
 17    <application
-17-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:11:5-37:19
+17-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:11:5-37:19
 18        android:allowBackup="true"
-18-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:12:9-35
+18-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:12:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.3.2] C:\Users\Matteo\.gradle\caches\transforms-2\files-2.1\b4a4e2693d052802666bef6cc39feff5\core-1.3.2\AndroidManifest.xml:24:18-86
+19-->[androidx.core:core:1.3.2] /home/antonio/.gradle/caches/transforms-2/files-2.1/b4a4e2693d052802666bef6cc39feff5/core-1.3.2/AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@drawable/logo"
-21-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:13:9-38
+21-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:13:9-38
 22        android:label="@string/app_name"
-22-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:14:9-41
+22-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:14:9-41
 23        android:networkSecurityConfig="@xml/network_security_config"
-23-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:15:9-69
+23-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:15:9-69
 24        android:roundIcon="@mipmap/ic_launcher_round"
-24-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:16:9-54
+24-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:16:9-54
 25        android:supportsRtl="true"
-25-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:17:9-35
+25-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:17:9-35
 26        android:testOnly="true"
 27        android:theme="@style/Theme.TagNFCKotlin" >
-27-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:18:9-50
+27-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:18:9-50
 28        <activity android:name="com.example.tagnfckotlin.ListaPostazioniActivity" />
-28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:9-70
-28-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:19:19-58
+28-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:19:9-70
+28-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:19:19-58
 29        <activity
-29-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:20:9-30:20
+29-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:20:9-30:20
 30            android:name="com.example.tagnfckotlin.ui.login.LoginActivity"
-30-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:21:13-51
+30-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:21:13-51
 31            android:label="BlockCovid" >
-31-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:22:13-39
+31-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:22:13-39
 32            <intent-filter>
-32-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:23:13-27:29
+32-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:23:13-27:29
 33                <action android:name="android.intent.action.MAIN" />
-33-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:24:17-69
-33-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:24:25-66
+33-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:24:17-69
+33-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:24:25-66
 34
 35                <category android:name="android.intent.category.LAUNCHER" />
-35-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:17-77
-35-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:26:27-74
+35-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:26:17-77
+35-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:26:27-74
 36            </intent-filter>
 37        </activity>
 38        <activity android:name="com.example.tagnfckotlin.VisualizzaActivity" />
-38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:9-56
-38-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:31:19-53
+38-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:31:9-56
+38-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:31:19-53
 39        <activity android:name="com.example.tagnfckotlin.PrenotaActivity" >
-39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:32:9-34:20
-39-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:32:19-50
+39-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:32:9-34:20
+39-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:32:19-50
 40        </activity>
 41        <activity android:name="com.example.tagnfckotlin.GuidaActivity" />
-41-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:35:9-51
-41-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:35:19-48
+41-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:35:9-51
+41-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:35:19-48
 42        <activity android:name="com.example.tagnfckotlin.MainActivity" />
-42-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:36:9-59
-42-->C:\DPCM\bc19-android\app\src\main\AndroidManifest.xml:36:19-47
+42-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:36:9-59
+42-->/home/antonio/dpcm2077/bc19-android/app/src/main/AndroidManifest.xml:36:19-47
 43    </application>
 44
 45</manifest>

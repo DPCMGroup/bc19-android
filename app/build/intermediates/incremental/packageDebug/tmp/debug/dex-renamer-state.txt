@@ -1,10 +1,10 @@
-#Sat Apr 10 17:54:45 CEST 2021
+#Sun Apr 11 09:26:29 CEST 2021
 path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\DPCM\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.1=C\:\\DPCM\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
-base.0=C\:\\DPCM\\bc19-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.2=/home/antonio/dpcm2077/bc19-android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+base.1=/home/antonio/dpcm2077/bc19-android/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+base.0=/home/antonio/dpcm2077/bc19-android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
