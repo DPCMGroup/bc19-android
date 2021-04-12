@@ -5,30 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VisualizzaActivity">
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="308dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="Postazioni prenotate"
-        android:textSize="24sp"
+        android:id="@+id/Prenotazioniid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textColor="@color/material_on_surface_stroke"
+        android:text="PRENOTAZIONI"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_bookings"
-        android:layout_width="411dp"
-        android:layout_height="627dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/notprenota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:text="Non ci sono prenotazioni effettuate"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
+        tools:visibility="invisible"
+         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="342dp"
-        android:layout_height="476dp"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="152dp" />
+    <ListView
+        android:id="@+id/prenotalist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp">
+
+    </ListView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

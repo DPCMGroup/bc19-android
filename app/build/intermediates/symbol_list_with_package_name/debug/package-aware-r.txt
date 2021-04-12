@@ -1785,6 +1785,7 @@ id FUNCTION
 id Login
 id META
 id NO_DEBUG
+id Prenotazioniid
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -2077,6 +2078,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id notprenota
 id off
 id on
 id outline
@@ -2096,6 +2098,7 @@ id percent
 id pin
 id position
 id postLayout
+id prenotalist
 id progress_circular
 id progress_horizontal
 id radio
@@ -2181,6 +2184,7 @@ id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
+id testolista
 id text
 id text2
 id textEnd
@@ -2225,7 +2229,6 @@ id unlabeled
 id up
 id useLogo
 id username
-id view_bookings
 id view_offset_helper
 id view_tree_view_model_store_owner
 id visible
@@ -2377,6 +2380,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

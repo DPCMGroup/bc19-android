@@ -221,7 +221,7 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.nav_guida -> {
-                val idutente = intent.getStringExtra("id")
+
                 var moveIntent =Intent(this, GuidaActivity::class.java)
                 startActivity(moveIntent)
                 return true
@@ -258,8 +258,13 @@ class MainActivity : AppCompatActivity() {
         println(idutente)
         val conversione = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
         val s2= "{ \"visualizzaPrenotazioni\" : "+ conversione +"}"
+/*
+        if (s == "\"[]\"") {
 
-        if (s == "\"[]\"") {""
+            val num: Int = -1
+            var intent =Intent(this, VisualizzaActivity::class.java)
+            intent.putExtra("numeroit", num.toString())
+            startActivity(intent)
             //creare textView con scritto "Nessuna prenotazione effetuata"
             }
 
@@ -267,8 +272,10 @@ class MainActivity : AppCompatActivity() {
             try {
 
                 val oggettojson=JSONObject(s2)
+
                 val userList = ArrayList<HashMap<String, String?>>()
                 val jsonarray = oggettojson.getJSONArray("visualizzaPrenotazioni")
+                var finale: String = "{ ["
                 for (i in 0 until jsonarray.length()) {
                     val user = HashMap<String, String?>()
                     val obj = jsonarray.getJSONObject(i)
@@ -281,20 +288,24 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                    var intent =Intent(this, VisualizzaActivity::class.java)
-                    val s= intent.putExtra("bookId"+ i, user["bookId"])
-                    val d = intent.putExtra("workName"+ i, user["workName"])
-                    val f = intent.putExtra("roomName"+ i, user["roomName"])
-                    val e= intent.putExtra("start"+ i, user["start"])
-                    val c= intent.putExtra("end"+ i, user["end"])
-                    intent.putExtra("num", i.toString())
-                    println(i)
-                     val finale :String = s.toString()+d.toString()+f.toString()+e.toString()+c.toString()
+
+                   /* val s= intent.putExtra("bookId"+ i, user["bookId"])
+                    val d = intent.putExtra("workName"+i, user["workName"])
+                    val f = intent.putExtra("roomName"+i, user["roomName"])
+                    val e= intent.putExtra("start"+i, user["start"])
+                    val c= intent.putExtra("end"+i, user["end"])
+                    intent.putExtra("numeroit", i.toString())*/
+
+
+                  finale = finale+"" + user["bookId"].toString()+" "+user["workName"].toString()+" "+user["roomName"].toString()+" "+user["start"].toString()+" "+user["end"].toString()+"         "
+
+
+
+
                     println(finale)
                     if (i==jsonarray.length()-1) {
 
-                        startActivity(intent)
-                    }
+                  //  }
                 }
 
 
@@ -304,14 +315,16 @@ class MainActivity : AppCompatActivity() {
             }
 
 
+*/
 
-
-
+var intent =Intent(this, VisualizzaActivity::class.java)
+val seew= intent.putExtra("json", s2)
+startActivity(intent)
             //creare checkbox con "data - orainizio - orafine - postazione - stanza"
                 // creare il bottone disdici
             }
 
-    }
+
 
 
 
