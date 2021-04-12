@@ -524,7 +524,13 @@ startActivity(intent)
     }
 
     fun manageOutputscansione(s: String) {
+        if(s=="\"Nessuna workstation trovata corrispondente al tag\""){
+            runOnUiThread {
+                Toast.makeText(applicationContext, "Errore!", Toast.LENGTH_SHORT).show()
 
+            }
+            return
+        }
         val idutente = intent.getStringExtra("id")
         val conversioneobj = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
         val json = JSONObject(conversioneobj)
