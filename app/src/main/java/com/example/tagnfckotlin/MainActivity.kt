@@ -8,6 +8,7 @@ import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.provider.Settings
@@ -16,6 +17,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +31,8 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.ArrayList
 
 
@@ -53,6 +57,7 @@ class MainActivity : AppCompatActivity() {
     private val client = HttpClient(url_json)
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         //non bisognerebbe usare lo stesso thread dell'applicazione per fare chiamate internet.
@@ -64,21 +69,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val idutente = intent.getStringExtra("id")
+        val username = intent.getStringExtra("username")
+        runOnUiThread {
+            Toast.makeText(applicationContext, "Benvenuto " + username+"!", Toast.LENGTH_SHORT).show()
+        }
+        val IdUt= findViewById<TextView>(R.id.IdUt_txt)
+        IdUt.text= idutente
         println(idutente)
         val igienizza = findViewById<Button>(R.id.igienizza)
         val message = findViewById<TextView>(R.id.message_txt)
         val message1 = findViewById<TextView>(R.id.message1_txt)
         val stato = findViewById<TextView>(R.id.stato)
         val tagId= findViewById<TextView>(R.id.tagId_txt)
+        runOnUiThread {
+            igienizza.isEnabled = false
+        }
 
 
         igienizza.setOnClickListener {
             val json : JSONObject = createJsonObjactIgienizza(tagId, idutente)
             client.visIgienizza(json, this::manageOutputIgienizza)
-            stato.text = "Libera e Igienizzata"
-            igienizza.setVisibility(View.INVISIBLE)
-            message.setVisibility(View.INVISIBLE)
-            message1.setVisibility(View.VISIBLE)
+
         }
 
        text = findViewById<View>(R.id.text) as TextView
@@ -206,17 +217,22 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
+        val idutente = intent.getStringExtra("id")
         menuInflater.inflate(R.menu.menu_item, menu)
         return true
     }
 
      override  fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+
+
             R.id.nav_prenota -> {
-                val idutente = intent.getStringExtra("id")
+                val IdUt= findViewById<TextView>(R.id.IdUt_txt)
+
+                println(IdUt.text)
+                println(IdUt.text.toString())
                 var moveIntent =Intent(this, PrenotaActivity::class.java)
-                moveIntent.putExtra("id", idutente.toString())
+                moveIntent.putExtra("id", IdUt.text.toString())
                 startActivity(moveIntent)
                 return true
             }
@@ -227,9 +243,13 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.nav_vis -> {
-                val idutente = intent.getStringExtra("id")
-                val json : JSONObject = createJsonObjact()
-                client.visprenotazioni(json, this::manageOutputvis, idutente)
+                val IdUt= findViewById<TextView>(R.id.IdUt_txt)
+                  //  val idutente = intent.getStringExtra("id")
+
+
+                    val json: JSONObject = createJsonObjact()
+
+                client.visprenotazioni(json, this::manageOutputvis, IdUt.text.toString())
                 return true
             }
             R.id.logout -> {
@@ -432,11 +452,15 @@ startActivity(intent)
 
          // Rende visibile intro stato postazione
          val intro =  findViewById<TextView>(R.id.intro_txt)
-        intro.setVisibility(View.VISIBLE)
+        runOnUiThread {
+            intro.setVisibility(View.VISIBLE)
+        }
 
        // Rende visibile recycler view
         val layout =  findViewById<RecyclerView>(R.id.recyclerView)
-        layout.setVisibility(View.VISIBLE)
+        runOnUiThread {
+            layout.setVisibility(View.VISIBLE)
+        }
 
 
 /*
@@ -500,9 +524,9 @@ startActivity(intent)
     }
 
     fun manageOutputscansione(s: String) {
-        println(s)
 
-            val conversioneobj = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
+        val idutente = intent.getStringExtra("id")
+        val conversioneobj = s.replace("\\\"","'").replace("\"", "").replace("'","\"")
         val json = JSONObject(conversioneobj)
 
           // String instance holding the above json
@@ -517,9 +541,7 @@ startActivity(intent)
             igienizza.setVisibility(View.INVISIBLE)
             message.setVisibility(View.INVISIBLE)
             message1.setVisibility(View.INVISIBLE)
-        runOnUiThread {
-            igienizza.isEnabled = false
-        }
+
             val nomepostazione = findViewById<TextView>(R.id.nomepostazione)
             val stato = findViewById<TextView>(R.id.stato)
             val evprenotazioni = findViewById<TextView>(R.id.evprenotazioni)
@@ -532,6 +554,9 @@ startActivity(intent)
                 runOnUiThread {
                     evprenotazioni.text = "Non ci sono prenotazioni"
                 }
+            }
+        else{
+
             }
 
 
@@ -573,28 +598,54 @@ startActivity(intent)
             }
 
 
-            nomepostazione.setVisibility(View.VISIBLE)
-            stato.setVisibility(View.VISIBLE)
-            evprenotazioni.setVisibility(View.VISIBLE)
+        runOnUiThread { nomepostazione.setVisibility(View.VISIBLE)}
+            runOnUiThread {  stato.setVisibility(View.VISIBLE)}
+                runOnUiThread { evprenotazioni.setVisibility(View.VISIBLE)}
 
 
 
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createJsonObjactIgienizza(tagid: TextView, idutente: String?): JSONObject {
         val Settings = JSONObject()
-        Settings.put("id", idutente)
-     println(idutente)
+        Settings.put("idUser", idutente)
+        Settings.put("tag", tagid.text)
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val formatted = current.format(formatter)
 
-        Settings.put("idtag", tagid.text)
+       Settings.put("data",formatted)
 
-        println(Settings)
         return Settings
     }
 
     fun manageOutputIgienizza(s: String) {
-        //risposta cambio stato
+        val output= s.replace("\"","")
+        runOnUiThread {
+            Toast.makeText(applicationContext, output, Toast.LENGTH_SHORT).show()
+        }
+        if(output=="sanitize complete") {
+            val igienizza = findViewById<Button>(R.id.igienizza)
+            igienizza.isEnabled = true
+            val message = findViewById<TextView>(R.id.message_txt)
+            val message1 = findViewById<TextView>(R.id.message1_txt)
+            val stato = findViewById<TextView>(R.id.stato)
+            runOnUiThread {
+                stato.text = "Libera e Igienizzata"
+            }
+            runOnUiThread {
+                igienizza.setVisibility(View.INVISIBLE)
+            }
+            runOnUiThread {
+                message.setVisibility(View.INVISIBLE)
+            }
+            runOnUiThread {
+                message1.setVisibility(View.VISIBLE)
+            }
+        }
+
     }
 
     private fun toHex(bytes: ByteArray): String {

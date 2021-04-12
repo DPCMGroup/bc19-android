@@ -50,6 +50,7 @@ if(json!= "{ \"visualizzaPrenotazioni\" : []}"){
             e.printStackTrace()
         }
 
+
         listView.adapter = myAdapter(this, R.layout.row, list)
     }
         else{

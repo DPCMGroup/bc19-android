@@ -16,12 +16,12 @@
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\workstations_item.xml"
     },
     {
-        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_prenota.xml.flat",
-        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_prenota.xml"
-    },
-    {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_bookings.xml.flat",
         "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\list_bookings.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_prenota.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_prenota.xml"
     },
     {
         "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
