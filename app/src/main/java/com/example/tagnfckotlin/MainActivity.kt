@@ -702,18 +702,37 @@ startActivity(intent)
         }
         if(output=="sanitize complete") {
             val igienizza = findViewById<Button>(R.id.igienizza)
-            igienizza.isEnabled = true
+            runOnUiThread {
+                igienizza.isEnabled = true
+            }
             val message = findViewById<TextView>(R.id.message_txt)
             val message1 = findViewById<TextView>(R.id.message1_txt)
+            val evprenotazioni = findViewById<TextView>(R.id.evprenotazioni)
             val stato = findViewById<TextView>(R.id.stato)
             if(stato.text=="Libera e non Igienizzata"){
             runOnUiThread {
                 stato.text = "Libera e Igienizzata"
-            }}
+            }
+                runOnUiThread {
+                    message.setVisibility(View.INVISIBLE)
+                }
+                runOnUiThread {
+                    message1.setVisibility(View.VISIBLE)
+                }}
             if(stato.text=="Prenotata e non Igienizzata"){
                 runOnUiThread {
                     stato.text = "Prenotata e Igienizzata"
-                }}
+                }
+            if(evprenotazioni.text=="Prenotata da te. Attenzione ci sono altre prenotazioni!" || evprenotazioni.text=="Postazione prenotata da te"){
+                runOnUiThread {
+                    message.setVisibility(View.INVISIBLE)
+                }
+                runOnUiThread {
+                    message1.setVisibility(View.VISIBLE)
+                }
+            }
+
+            }
             if(stato.text=="Guasta e non Igienizzata"){
                 runOnUiThread {
                     stato.text = "Guasta e Igienizzata"
@@ -723,11 +742,9 @@ startActivity(intent)
                 igienizza.setVisibility(View.INVISIBLE)
             }
             runOnUiThread {
-                message.setVisibility(View.INVISIBLE)
+                igienizza.isEnabled=false
             }
-            runOnUiThread {
-                message1.setVisibility(View.VISIBLE)
-            }
+
         }
 
     }
