@@ -719,6 +719,17 @@ startActivity(intent)
                 runOnUiThread {
                     message1.setVisibility(View.VISIBLE)
                 }}
+            if(stato.text=="Occupata e non Igienizzata"){
+                runOnUiThread {
+                    stato.text = "Occupata e Igienizzata"
+                }}
+
+            runOnUiThread {
+                igienizza.setVisibility(View.INVISIBLE)
+            }
+            runOnUiThread {
+                igienizza.isEnabled=false
+            }
             if(stato.text=="Prenotata e non Igienizzata"){
                 runOnUiThread {
                     stato.text = "Prenotata e Igienizzata"
