@@ -1,66 +1,130 @@
 [
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_guida.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_guida.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_workstations_item.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\workstations_item.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_bookings.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\list_bookings.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_prenota.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_prenota.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\drawable\\logo.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_row.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\row.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_lista_postazioni.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_lista_postazioni.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\xml_network_security_config.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\xml\\network_security_config.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bordo.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\bordo.xml"
     },
     {
-        "merged": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Noemi\\Desktop\\Progetto Ingegneria del Software\\Repository\\bc19-android\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_item.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\menu\\menu_item.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_password.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_password.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_visualizza.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\layout\\activity_visualizza.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ora.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_ora.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_calendario.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_calendario.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_username.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\drawable\\ic_username.xml"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\DPCM\\bc19-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\DPCM\\bc19-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     }
 ]

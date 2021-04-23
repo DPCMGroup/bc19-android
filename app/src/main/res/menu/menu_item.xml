@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+        <item
+            android:id="@+id/nav_prenota"
+            android:title="Prenota Postazione"
+            app:showAsAction="never"/>
+
+
+        <item
+            android:id="@+id/nav_vis"
+            android:title="Visualizza Prenotazioni"
+            app:showAsAction="never"/>
+        />
+    <item
+        android:id="@+id/nav_guida"
+        android:title="Guida"
+        app:showAsAction="never" />
+        />
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        app:showAsAction="never" />
+    />
+
+</menu>
